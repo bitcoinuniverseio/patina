@@ -17,6 +17,11 @@ This repository is the canonical source. It holds the normative specification,
 the reference implementation, and the conformance vectors that other
 implementations are checked against.
 
+Repository and Pages build checks use PowerShell on the shared `universe-ci`
+pool. The same deterministic vector, generated-file, package, and site gates
+therefore run on certified Linux or Windows workers, while fork pull requests
+remain excluded from private runners.
+
 - Specification: [patina-protocol.md](patina-protocol.md)
 - Package: `@bitcoinuniverse/patina`
 - Genesis asset: Firstlight Seals
