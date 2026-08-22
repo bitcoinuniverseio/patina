@@ -22,8 +22,11 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, universe-ci]
     timeout-minutes: 15
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: Check out the exact requested revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -34,7 +37,10 @@ jobs:
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
-          node-version: 24
+          node-version: 24.19.0
+
+      - name: Pin npm
+        run: npm install --global npm@11.17.0
 
       - name: Check the site
         run: node site/tools/verify.mjs
@@ -54,14 +60,15 @@ jobs:
 
       - name: Assemble the published tree
         run: |
-          mkdir -p public
-          cp -r site/. public/
-          mkdir -p public/docs
-          cp -r docs/. public/docs/
-          cp patina-protocol.md public/patina-protocol.md
-          mkdir -p public/vectors
-          cp vectors/golden.json vectors/manifest.json public/vectors/
-          touch public/.nojekyll
+          $public = Join-Path $env:GITHUB_WORKSPACE 'public'
+          $publicDocs = Join-Path $public 'docs'
+          $publicVectors = Join-Path $public 'vectors'
+          New-Item -ItemType Directory -Path $public, $publicDocs, $publicVectors -Force | Out-Null
+          Get-ChildItem -LiteralPath 'site' -Force | Copy-Item -Destination $public -Recurse -Force
+          Get-ChildItem -LiteralPath 'docs' -Force | Copy-Item -Destination $publicDocs -Recurse -Force
+          Copy-Item -LiteralPath 'patina-protocol.md' -Destination (Join-Path $public 'patina-protocol.md')
+          Copy-Item -LiteralPath 'vectors/golden.json', 'vectors/manifest.json' -Destination $publicVectors
+          New-Item -ItemType File -Path (Join-Path $public '.nojekyll') -Force | Out-Null
 
       - name: Record the immutable deployment revision
         run: git rev-parse HEAD
@@ -74,7 +81,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, universe-ci]
     timeout-minutes: 10
     environment:
       name: github-pages
