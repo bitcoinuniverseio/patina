@@ -13,7 +13,7 @@ moves no funds. Every PATINA fact is a deterministic function of confirmed block
 and one deployment record, so two independent implementations either agree byte
 for byte or one of them has a bug.
 
-This repository is the canonical source. It holds the normative specification,
+This repository is the authoritative source. It holds the normative specification,
 the reference implementation, and the conformance vectors that other
 implementations are checked against.
 

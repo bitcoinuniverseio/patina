@@ -109,7 +109,7 @@ artifact fact leaves. No frozen tag changed meaning.
 Why: without distinct tags, a leaf could be presented as an internal node. The
 tags are additions, not substitutions.
 
-## 8. Canonical encodings
+## 8. Authoritative encodings
 
 Baseline: names the event leaf and state root digests but not the byte layouts
 they consume.
