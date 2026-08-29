@@ -78,12 +78,12 @@ Added:
   consensus preconditions, the four derivations, the frozen constants, the marker
   grammar with exact byte layouts, the commit output shape, SEED validity, KEEP
   rules, the default rule, the state machine, ring semantics, bundles, depth and
-  tiers, the reason code registry, canonical encodings and roots, reorg
+  tiers, the reason code registry, authoritative encodings and roots, reorg
   behaviour, mempool status, deployment records, invariants and the upgrade
   boundary.
 - The reference implementation: constants, hash helpers, marker codec, identity
   derivations, resolved block views, validation, the deterministic reducer,
-  depth and tiers, canonical roots, deployment loading, wire serialization and
+  depth and tiers, authoritative roots, deployment loading, wire serialization and
   the share card builder.
 - `cli.mjs`, the `patina` command line tool: marker encode, marker decode,
   artifact-id, commit-commitment, spec-hash, vectors verify and replay.

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for looking. This repository is the canonical definition of PATINA, and
+Thanks for looking. This repository is the authoritative definition of PATINA, and
 other implementations are checked against it, so the bar here is higher than for
 ordinary application code.
 
@@ -10,7 +10,7 @@ Read `patina-protocol.md`. Most questions are answered there, and a change that
 disagrees with it is a specification change, not a code change.
 
 Open an issue before writing code for anything that touches the specification,
-the constants, the reason codes, the canonical encodings, or the vectors. Those
+the constants, the reason codes, the authoritative encodings, or the vectors. Those
 are the parts other people depend on.
 
 ## What is frozen
@@ -22,7 +22,7 @@ byte, and a new version byte is a large decision, not a pull request:
 - the four derivations and their domain tags,
 - every constant in section 5 of the specification,
 - the eighteen reason codes,
-- the canonical event, ring, artifact fact and snapshot encodings,
+- the authoritative event, ring, artifact fact and snapshot encodings,
 - the tier ladder.
 
 Bug fixes to the reference implementation that bring it back in line with the

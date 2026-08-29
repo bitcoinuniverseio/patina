@@ -30,13 +30,13 @@ In scope:
 - the marker grammar carried in an OP_RETURN output,
 - the commit output shape and the commit reveal,
 - artifact creation, movement and termination,
-- the deterministic state reducer and its canonical roots,
+- the deterministic state reducer and its authoritative roots,
 - the reason code registry for rejected attempts.
 
 Out of scope:
 
 - wallet construction, fee policy and coin selection,
-- transport, storage and API framing beyond the canonical shapes named here,
+- transport, storage and API framing beyond the authoritative shapes named here,
 - any notion of price, ownership transfer or off chain trade.
 
 ## 2. Notation and primitives
@@ -125,7 +125,7 @@ one output in the chain.
 event_leaf = SHA256( "PTNA/event" || canonical_event_encoding(86) )
 ```
 
-Section 15 defines the canonical event encoding.
+Section 15 defines the authoritative event encoding.
 
 ### 4.4 State root
 
@@ -133,7 +133,7 @@ Section 15 defines the canonical event encoding.
 state_root = SHA256( "PTNA/state" || canonical_snapshot_encoding(88) )
 ```
 
-Section 15 defines the canonical snapshot encoding.
+Section 15 defines the authoritative snapshot encoding.
 
 ### 4.5 Attestation message
 
@@ -719,7 +719,7 @@ Invalid events are a reporting surface. They never change artifact state. They
 are not committed to by the event root, because a node that prunes them must
 still reach the same state root as a node that keeps them.
 
-## 15. Canonical encodings and roots
+## 15. Authoritative encodings and roots
 
 Every encoding here is fixed width. There is nothing to guess.
 
