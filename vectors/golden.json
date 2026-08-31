@@ -1,7 +1,7 @@
 {
   "protocol": "PTNA",
   "markerVersion": 1,
-  "specSha256": "e3f094cec0f870d1660e0e3042f1fdd4ad4a41af856abdff654f3aafb9aca9b8",
+  "specSha256": "50185d0e075a44d36adc3b7bea05116b639751cd3519b659ece22cd1f5ef1d13",
   "generator": "scripts/generate-vectors.mjs",
   "note": "Every value in this file is derived from the built library. Regenerating on any machine produces identical bytes.",
   "constants": {
@@ -17,7 +17,7 @@
     "regtest": {
       "network": "regtest",
       "protocolId": "PTNA",
-      "specSha256": "e3f094cec0f870d1660e0e3042f1fdd4ad4a41af856abdff654f3aafb9aca9b8",
+      "specSha256": "50185d0e075a44d36adc3b7bea05116b639751cd3519b659ece22cd1f5ef1d13",
       "hOpen": 200,
       "hClose": 4232,
       "graceEnd": 8264,
