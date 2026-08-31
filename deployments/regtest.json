@@ -1,7 +1,7 @@
 {
   "network": "regtest",
   "protocol_id": "PTNA",
-  "spec_sha256": "e3f094cec0f870d1660e0e3042f1fdd4ad4a41af856abdff654f3aafb9aca9b8",
+  "spec_sha256": "50185d0e075a44d36adc3b7bea05116b639751cd3519b659ece22cd1f5ef1d13",
   "h_open": 200,
   "h_close": 4232,
   "grace_end": 8264,

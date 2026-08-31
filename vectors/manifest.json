@@ -1,7 +1,7 @@
 {
   "fixture": "golden.json",
-  "fixtureSha256": "780f8aaab830ed235058c3f2183312dfc8a00721c249671abd659427c3d45a4e",
-  "specSha256": "e3f094cec0f870d1660e0e3042f1fdd4ad4a41af856abdff654f3aafb9aca9b8",
+  "fixtureSha256": "177567d99d7a4fa7cccfab1671ffeb8ae307b2c7616092f45f85af2f1e5d2daf",
+  "specSha256": "50185d0e075a44d36adc3b7bea05116b639751cd3519b659ece22cd1f5ef1d13",
   "counts": {
     "derivations": 10,
     "markerRoundTrips": 12,
