@@ -21,15 +21,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  route:
-    uses: bitcoinuniverseio/.github-private/.github/workflows/route.yml@develop
-    secrets: inherit
-    with:
-      plan: '{"build_2":"light","deploy_2":"light"}'
-
   build:
-    needs: route
-    runs-on: ${{ fromJSON(needs.route.outputs.targets).build_2 }}
+    # This repository is public and the capacity router is a reusable workflow
+    # in the private .github-private, which a public caller cannot resolve.
+    # Target the ultra pool directly until the router is published somewhere a
+    # public repository can reach.
+    runs-on: [self-hosted, linux-ultra]
     timeout-minutes: 15
     defaults:
       run:
@@ -87,8 +84,8 @@ jobs:
           path: public
 
   deploy:
-    needs: [route, build]
-    runs-on: ${{ fromJSON(needs.route.outputs.targets).deploy_2 }}
+    needs: build
+    runs-on: [self-hosted, linux-ultra]
     timeout-minutes: 10
     environment:
       name: github-pages
