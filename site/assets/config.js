@@ -13,11 +13,11 @@
 
   var CONFIG = {
     /*
-     * Absolute origin the site is published under. Used for canonical links
+     * Absolute origin the site is published under. Used for the rel="canonical" links
      * and social card URLs that were written into the pages. Change the page
      * metadata too if you move the site.
      */
-    siteOrigin: 'https://bitcoinuniverse.github.io/patina/',
+    siteOrigin: 'https://bitcoinuniverseio.github.io/patina/',
 
     /*
      * Base URL of a PATINA indexer, including the base path defined by the
