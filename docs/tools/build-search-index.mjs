@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Builds the client side search index for the PATINA documentation.
 // Writes two files with the same content:
-//   assets/search-index.json  the canonical artefact
+//   assets/search-index.json  the authoritative artefact
 //   assets/search-index.js    the same data as a global, so search works when a
 //                             page is opened from disk, where fetch of a local
 //                             file is blocked by the browser
