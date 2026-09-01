@@ -307,7 +307,7 @@ function loadPage(file, options) {
 
   const winListeners = {};
   windowStub = {
-    location: { search: opts.search || '', hash: opts.hash || '', href: 'https://bitcoinuniverse.github.io/patina/' + file },
+    location: { search: opts.search || '', hash: opts.hash || '', href: 'https://bitcoinuniverseio.github.io/patina/' + file },
     matchMedia: (query) => ({
       matches: query.indexOf('prefers-reduced-motion: reduce') > -1
         ? Boolean(opts.reducedMotion)

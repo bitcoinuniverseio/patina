@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const SITE = join(resolve(ROOT, '..'), 'site');
-const ORIGIN = 'https://bitcoinuniverse.github.io/patina/';
+const ORIGIN = 'https://bitcoinuniverseio.github.io/patina/';
 
 const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
   'link', 'meta', 'param', 'source', 'track', 'wbr']);
@@ -24,18 +24,18 @@ const REQUIRED = [
   [/<meta name="viewport"[^>]*width=device-width/i, 'responsive viewport'],
   [/<title>[^<]+<\/title>/i, 'non empty title'],
   [/<meta name="description" content="[^"]{40,}"/i, 'description of at least 40 characters'],
-  [/<link rel="canonical" href="https:\/\/bitcoinuniverse\.github\.io\/patina\/docs\/[^"]+">/, 'canonical link'],
+  [/<link rel="canonical" href="https:\/\/bitcoinuniverseio\.github\.io\/patina\/docs\/[^"]+">/, 'canonical link'],
   [/<meta property="og:type" content="[^"]+">/, 'og:type'],
   [/<meta property="og:site_name" content="PATINA">/, 'og:site_name'],
   [/<meta property="og:title" content="[^"]+">/, 'og:title'],
   [/<meta property="og:description" content="[^"]{40,}">/, 'og:description'],
-  [/<meta property="og:url" content="https:\/\/bitcoinuniverse\.github\.io\/patina\/docs\/[^"]+">/, 'og:url'],
-  [/<meta property="og:image" content="https:\/\/bitcoinuniverse\.github\.io\/patina\/assets\/brand\/[^"]+\.svg">/, 'og:image'],
+  [/<meta property="og:url" content="https:\/\/bitcoinuniverseio\.github\.io\/patina\/docs\/[^"]+">/, 'og:url'],
+  [/<meta property="og:image" content="https:\/\/bitcoinuniverseio\.github\.io\/patina\/assets\/brand\/[^"]+\.svg">/, 'og:image'],
   [/<meta property="og:image:alt" content="[^"]+">/, 'og:image:alt'],
   [/<meta name="twitter:card" content="summary_large_image">/, 'twitter card'],
   [/<meta name="twitter:title" content="[^"]+">/, 'twitter:title'],
   [/<meta name="twitter:description" content="[^"]+">/, 'twitter:description'],
-  [/<meta name="twitter:image" content="https:\/\/bitcoinuniverse\.github\.io\/patina\/assets\/brand\/[^"]+\.svg">/, 'twitter:image'],
+  [/<meta name="twitter:image" content="https:\/\/bitcoinuniverseio\.github\.io\/patina\/assets\/brand\/[^"]+\.svg">/, 'twitter:image'],
   [/<meta name="theme-color" content="#14110d">/, 'theme colour matching the stylesheet'],
   [/<body[^>]+data-page="[^"]+"/i, 'data-page on body'],
   [/<body[^>]+data-root="[^"]*"/i, 'data-root on body'],
@@ -83,7 +83,7 @@ for (const file of files) {
     if (!re.test(text)) fail(`missing ${name}`);
   }
 
-  // The canonical link and og:url have to name this page, not another one, and
+  // The rel="canonical" link and og:url have to name this page, not another one, and
   // the social card has to be a file that actually ships.
   const wanted = ORIGIN + 'docs/' + rel;
   for (const [re, name] of [
