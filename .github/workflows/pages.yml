@@ -52,6 +52,7 @@ jobs:
       - name: The generated files are reproducible
         run: |
           node site/tools/build-cards.mjs
+          node site/tools/build-llms-txt.mjs
           node docs/tools/stamp-meta.mjs
           node docs/tools/build-search-index.mjs
           git diff --exit-code -- site docs
@@ -65,6 +66,7 @@ jobs:
           Get-ChildItem -LiteralPath 'site' -Force | Copy-Item -Destination $public -Recurse -Force
           Get-ChildItem -LiteralPath 'docs' -Force | Copy-Item -Destination $publicDocs -Recurse -Force
           Copy-Item -LiteralPath 'patina-protocol.md' -Destination (Join-Path $public 'patina-protocol.md')
+          Copy-Item -LiteralPath 'docs.manifest.json' -Destination (Join-Path $public 'docs.manifest.json')
           Copy-Item -LiteralPath 'vectors/golden.json', 'vectors/manifest.json' -Destination $publicVectors
           New-Item -ItemType File -Path (Join-Path $public '.nojekyll') -Force | Out-Null
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Proves that every byte example printed in the documentation was computed,
-// not typed. It recomputes the canonical values, then checks that every hex run
+// not typed. It recomputes the specified values, then checks that every hex run
 // of 8 or more characters appearing in any page is part of one of them.
 // A single wrong digit fails this check.
 // Run: node docs/tools/check-vectors.mjs
