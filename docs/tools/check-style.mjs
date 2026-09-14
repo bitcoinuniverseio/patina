@@ -20,9 +20,9 @@ const HYPE = [
 ];
 
 const DASHES = [
-  ['em dash', '—'],
-  ['en dash', '–'],
-  ['horizontal bar', '―'],
+  ['em dash', '\u2014'],
+  ['en dash', '\u2013'],
+  ['horizontal bar', '\u2015'],
 ];
 
 const EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{1F900}-\u{1F9FF}]/u;
@@ -74,13 +74,13 @@ for (const file of files) {
       if (re.test(lower)) failures.push(`${at}: hype word "${word}"`);
     }
 
-    // No third party resources anywhere. A canonical link is the one absolute
+    // No third party resources anywhere. A rel="canonical" link is the one absolute
     // href allowed, because it has to be absolute to mean anything, it loads
     // nothing, and it may only ever point at this project's own origin.
     const resource = line.match(/\s(?:src|href)="(https?:)?\/\/[^"]+"/i);
     if (resource) {
-      const canonical = /<link\s+rel="canonical"\s+href="https:\/\/bitcoinuniverse\.github\.io\/patina\/[^"]*">/.test(line);
-      if (!canonical) failures.push(`${at}: external resource ${resource[0].trim()}`);
+      const selfLink = /<link\s+rel="canonical"\s+href="https:\/\/bitcoinuniverseio\.github\.io\/patina\/[^"]*">/.test(line);
+      if (!selfLink) failures.push(`${at}: external resource ${resource[0].trim()}`);
     }
   });
 }

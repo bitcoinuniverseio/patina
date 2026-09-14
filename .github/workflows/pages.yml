@@ -22,7 +22,11 @@ concurrency:
 
 jobs:
   build:
-    runs-on: [self-hosted, universe-ci]
+    # This repository is public and the capacity router is a reusable workflow
+    # in the private .github-private, which a public caller cannot resolve.
+    # Target the ultra pool directly until the router is published somewhere a
+    # public repository can reach.
+    runs-on: [self-hosted, linux, x64, universe-linux]
     timeout-minutes: 15
     defaults:
       run:
@@ -35,13 +39,7 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
-        with:
-          node-version: 24.19.0
-
-      - name: Pin npm
-        run: npm install --global npm@11.17.0
-
+      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@8e24bc760556caa5ec8c7c497baaad2e9adcc912
       - name: Check the site
         run: node site/tools/verify.mjs
 
@@ -54,6 +52,7 @@ jobs:
       - name: The generated files are reproducible
         run: |
           node site/tools/build-cards.mjs
+          node site/tools/build-llms-txt.mjs
           node docs/tools/stamp-meta.mjs
           node docs/tools/build-search-index.mjs
           git diff --exit-code -- site docs
@@ -67,6 +66,7 @@ jobs:
           Get-ChildItem -LiteralPath 'site' -Force | Copy-Item -Destination $public -Recurse -Force
           Get-ChildItem -LiteralPath 'docs' -Force | Copy-Item -Destination $publicDocs -Recurse -Force
           Copy-Item -LiteralPath 'patina-protocol.md' -Destination (Join-Path $public 'patina-protocol.md')
+          Copy-Item -LiteralPath 'docs.manifest.json' -Destination (Join-Path $public 'docs.manifest.json')
           Copy-Item -LiteralPath 'vectors/golden.json', 'vectors/manifest.json' -Destination $publicVectors
           New-Item -ItemType File -Path (Join-Path $public '.nojekyll') -Force | Out-Null
 
@@ -81,7 +81,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [self-hosted, universe-ci]
+    runs-on: [self-hosted, linux, x64, universe-linux]
     timeout-minutes: 10
     environment:
       name: github-pages

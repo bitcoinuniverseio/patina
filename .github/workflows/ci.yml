@@ -20,7 +20,11 @@ jobs:
     if: >-
       github.event_name != 'pull_request' ||
       github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, universe-ci]
+    # This repository is public and the capacity router is a reusable workflow
+    # in the private .github-private, which a public caller cannot resolve.
+    # Target the ultra pool directly until the router is published somewhere a
+    # public repository can reach.
+    runs-on: [self-hosted, linux, x64, universe-linux]
     timeout-minutes: 10
     defaults:
       run:
@@ -32,18 +36,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up Node
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: '24.19.0'
-          cache: npm
-
-      - name: Pin npm
-        run: npm install --global npm@11.17.0
-
-      - name: Install
-        run: npm ci
-
+      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@8e24bc760556caa5ec8c7c497baaad2e9adcc912
       - name: Specification byte contract
         run: npm run spec:check
 
