@@ -220,7 +220,7 @@ console.log(createHash("sha256").update(pre).digest("hex"));
       </div>
       <pre data-label="Leaf script, 68 bytes"><code>20f13dc99dc544736fca031f924b0ae1c54ff4a331f5c3b2951c6d4d5e1878866aac20ac2e3090ef3265ff4fc99463cec7e2b8d9227ac29f3ac0f5fc8e24dbaa2afdd675</code></pre>
       <p><code>OP_CHECKSIG</code> leaves the authorization result on the stack. The commitment is pushed and dropped afterwards, so the result and claimant control are unchanged and no conditional opcode executes.</p>
-      <p>The permanent legacy leaf <code>&lt;claimant_xonly&gt; OP_CHECKSIG OP_0 OP_IF PUSH32(commitment) OP_ENDIF</code> remains accepted for historical and already-committed reveals. It is 70 bytes and is not used for new construction because active BIP-110 rules reject execution reaching its <code>OP_IF</code>.</p>
+      <p>The permanent legacy leaf <code>&lt;claimant_xonly&gt; OP_CHECKSIG OP_0 OP_IF PUSH32(commitment) OP_ENDIF</code> remains accepted for historical and already-committed reveals. Both leaf forms enforce the claimant signature.</p>
       <p>For completeness, the BIP-341 tapleaf hash of that script with leaf version <code>0xc0</code>, which is
         standard Taproot and not a PATINA rule:</p>
       <pre data-label="BIP-341 tapleaf hash"><code>tagged_hash("TapLeaf", 0xc0 || compact_size(68) || leaf_script)

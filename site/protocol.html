@@ -242,7 +242,7 @@ tier  = the highest ladder index whose threshold is not greater than depth</pre>
     </div>
     <div class="prose">
       <p>The signature check makes the claim unstealable. Pushing and dropping the commitment afterwards leaves that result unchanged and executes no conditional opcode.</p>
-      <p>The legacy 70 byte <code>OP_0 OP_IF ... OP_ENDIF</code> leaf stays parseable forever, so commits already confirmed under it are never stranded. New construction does not use it, because reaching an <code>OP_IF</code> at all is what BIP-110 rules out.</p>
+      <p>The legacy 70 byte <code>OP_0 OP_IF ... OP_ENDIF</code> leaf stays parseable forever, so commits already confirmed under it are never stranded.</p>
       <p>The leaf must be revealed in the SEED transaction's own witness, as a script path spend.</p>
     </div>
   </section>

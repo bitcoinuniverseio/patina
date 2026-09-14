@@ -351,12 +351,8 @@ offset  size  value
 69      1     68            OP_ENDIF
 ```
 
-The legacy `OP_IF` is reached even though its false branch body does not run.
-That form therefore cannot be used for a post-activation, non-grandfathered
-reveal under active BIP-110 rules. It remains valid PATINA history and remains
-parseable so confirmed preactivation commitments and post-expiry operation are
-not stranded. Both forms enforce the same claimant signature and bind the same
-commitment digest.
+The legacy form remains parseable so existing commitments are not stranded.
+Both forms enforce the same claimant signature and bind the same commitment digest.
 
 An input reveals a commit leaf when all of the following hold:
 
