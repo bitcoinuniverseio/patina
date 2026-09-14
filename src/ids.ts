@@ -107,7 +107,7 @@ export function buildLegacyCommitLeafScript(
 }
 
 /**
- * Build the BIP-110-compatible leaf.
+ * Build the leaf.
  *
  *   <claimant_xonly(32)> OP_CHECKSIG PUSH32(commitment) OP_DROP
  *

@@ -53,7 +53,7 @@ Fixed:
 
 Added:
 
-- BIP-110-compatible PATINA commit leaves using
+- PATINA commit leaves using
   `<claimant_xonly> OP_CHECKSIG <commitment> OP_DROP`.
 - Permanent dual parsing for reduced-data and historical conditional commit
   leaves.

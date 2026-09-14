@@ -113,7 +113,7 @@ export const COMMITMENT_BYTES = 32;
 /** Byte length of the tapscript leaf that carries a PATINA commitment. */
 export const COMMIT_LEAF_BYTES = 70;
 
-/** Byte length of the BIP-110-compatible PATINA commit leaf. */
+/** Byte length of the PATINA commit leaf. */
 export const REDUCED_DATA_COMMIT_LEAF_BYTES = 68;
 
 /** Domain tag for the commit commitment digest. */

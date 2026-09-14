@@ -1,7 +1,7 @@
 # Deviations and interpretations
 
 The frozen implementation baseline remains authoritative for identifiers, state,
-reason codes, and historical encodings. The BIP-110 compatibility amendment adds
+reason codes, and historical encodings. The commit-leaf serialization amendment adds
 one equivalent commit-leaf serialization without changing any existing value or
 invalidating any previously accepted PATINA history. This file records that
 amendment and every place where the baseline was silent and a decision had to be
@@ -204,13 +204,11 @@ Why: an indexer that prunes its invalid event log must still reach the same stat
 root as one that keeps it. Roots commit to state, and a rejected attempt is not
 state.
 
-## 15. BIP-110-compatible commit-leaf serialization
+## 15. Commit-leaf serialization
 
 Baseline: the only commit leaf was
 `<claimant_xonly> OP_CHECKSIG OP_0 OP_IF PUSH32(commitment) OP_ENDIF`.
-Its commitment is in a false branch, but execution still reaches `OP_IF`. A new
-reveal of that form can therefore be rejected while BIP-110 reduced-data rules
-are active unless its commit output is grandfathered by confirmation height.
+Its commitment is in a false branch, but execution still reaches `OP_IF`.
 
 Implementation: parsers permanently accept both that 70 byte legacy form and the
 68 byte reduced-data form
@@ -223,4 +221,4 @@ Why: both scripts commit to the same claimant key and 32 byte PATINA commitment,
 and both leave the signature result as the final stack value. The added form
 removes the reached conditional without changing authorization, identifiers, or
 state-machine semantics. Permanent dual parsing preserves historical replay and
-pending legacy jobs, while the new default remains valid during BIP-110 ACTIVE.
+pending legacy jobs.

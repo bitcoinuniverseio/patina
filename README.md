@@ -93,7 +93,7 @@ import {
 
 const deployment = loadShippedDeployment('regtest');
 
-// New commits use the BIP-110-compatible reduced-data leaf.
+// New commits use the reduced-data leaf.
 const commitLeaf = buildCommitLeafScript(claimantXOnly, commitment);
 
 // A pending job must retain and reuse the exact mode used by its commit.

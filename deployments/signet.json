@@ -1,7 +1,7 @@
 {
   "network": "signet",
   "protocol_id": "PTNA",
-  "spec_sha256": "50185d0e075a44d36adc3b7bea05116b639751cd3519b659ece22cd1f5ef1d13",
+  "spec_sha256": "302c7d5ba533b1392b71695094ff59c63a1188f1b80fa25dd8c380a9e78f35e0",
   "h_open": 260000,
   "h_close": 264032,
   "grace_end": 268064,
