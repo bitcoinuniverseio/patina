@@ -5,7 +5,7 @@
 // Run: node docs/tools/stamp-meta.mjs
 //
 // Titles and descriptions belong to each page and are read out of it, never
-// invented here. Everything else is derived: the canonical URL and og:url come
+// invented here. Everything else is derived: the rel="canonical" URL and og:url come
 // from the file path, and the social card comes from the section the page sits
 // in, so a page can never point at a card for a different subject.
 //
@@ -25,7 +25,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const SITE = join(resolve(ROOT, '..'), 'site');
-const ORIGIN = 'https://bitcoinuniverse.github.io/patina/';
+const ORIGIN = 'https://bitcoinuniverseio.github.io/patina/';
 
 const OPEN = '<!-- sharing metadata, written by docs/tools/stamp-meta.mjs -->';
 const CLOSE = '<!-- end sharing metadata -->';

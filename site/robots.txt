@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://bitcoinuniverse.github.io/patina/sitemap.xml
+Sitemap: https://bitcoinuniverseio.github.io/patina/sitemap.xml

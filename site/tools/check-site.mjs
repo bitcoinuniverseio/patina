@@ -37,9 +37,9 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
 const REPO = resolve(ROOT, '..');
 const DOCS_ROOT = join(REPO, 'docs');
-const SITE_ORIGIN = 'https://bitcoinuniverse.github.io/patina/';
+const SITE_ORIGIN = 'https://bitcoinuniverseio.github.io/patina/';
 
-const EM_DASH = '—';
+const EM_DASH = '\u2014';
 const VOID_TAGS = new Set([
   'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
   'link', 'meta', 'param', 'source', 'track', 'wbr'
@@ -219,7 +219,7 @@ for (const file of htmlFiles) {
   if (ogImage) {
     checksRun += 1;
     if (!ogImage.startsWith(SITE_ORIGIN)) {
-      fail(rel, 'og:image does not start with the canonical origin: ' + ogImage);
+      fail(rel, 'og:image does not start with the site origin: ' + ogImage);
     } else {
       const local = join(ROOT, ogImage.slice(SITE_ORIGIN.length));
       if (!existsSync(local)) {

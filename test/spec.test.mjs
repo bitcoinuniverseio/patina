@@ -41,6 +41,6 @@ test('the specification names every reason code in the registry', () => {
 
 test('the specification carries no em dash and no version label', () => {
   const text = readSpecBytes().toString('utf8');
-  assert.equal(text.includes('—'), false, 'em dash found');
+  assert.equal(text.includes('\u2014'), false, 'em dash found');
   assert.equal(/\bv[0-9]+\b/i.test(text.replace(/version 1/g, '')), false, 'version label found');
 });

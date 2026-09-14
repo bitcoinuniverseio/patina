@@ -1,0 +1,142 @@
+# PATINA
+
+> PATINA marks one Bitcoin output as the carrier of an artifact. Depth is
+> the number of blocks that output has stayed unspent. Move it and depth
+> returns to zero, and the finished stretch is engraved as a ring that
+> cannot be rewritten.
+
+There is no PATINA marketplace. The Bitcoin Universe capability snapshot
+records no marketplace surface for PATINA, so no Bitcoin Universe product
+implements a buy, sell or settle path for an artifact. Minting happens in
+the Bitcoin Universe app; everything else is your own wallet and your own
+node.
+
+Every link below is published by this site.
+
+## Public pages
+
+- [PATINA, a Bitcoin artifact that deepens while it sits still](https://bitcoinuniverseio.github.io/patina/index.html): PATINA marks one Bitcoin output as the carrier of an artifact. Depth is the number of blocks that output has stayed unspent. Move it and depth returns to zero, and the finished stretch is engraved as a ring that cannot be rewritten.
+- [How depth works, PATINA](https://bitcoinuniverseio.github.io/patina/depth.html): Depth is the number of blocks a PATINA carrier output has stayed unspent. Take an artifact apart part by part, watch a stretch close into a ring, and see why an artifact at depth forty can still carry four years of history.
+- [The tier journey, PATINA](https://bitcoinuniverseio.github.io/patina/tiers.html): Eight tiers from Raw to Elder, each one a band of depth with an exact block threshold. Raw at 0, Sheen at 1008, Cast at 4032, Verdigris at 12960, Umber at 26280, Bronze at 52560, Oxide at 105120 and Elder at 210000 blocks.
+- [Firstlight Seals, PATINA](https://bitcoinuniverseio.github.io/patina/firstlight.html): Firstlight Seals are the founding PATINA artifacts. They can only be created inside one commit window of 4032 blocks. No team allocation, no price to the project, and at least 100 000 sats of your own bitcoin sealed in as the endowment.
+- [Commit, wait, reveal, PATINA](https://bitcoinuniverseio.github.io/patina/mint.html): How a Firstlight Seal is claimed: publish a commit output, let it age at least 144 blocks, then reveal. No price, network fees only, and at least 100 000 sats of your own bitcoin sealed inside as the endowment.
+- [Protocol, PATINA](https://bitcoinuniverseio.github.io/patina/protocol.html): The PATINA mechanism for a developer: marker bytes, the commit leaf, the commit and reveal shapes, the SEED check order, successor selection and the default rule, rings, identifier derivations, reorg behaviour and the frozen reason code registry.
+- [Verify it yourself, PATINA](https://bitcoinuniverseio.github.io/patina/verify.html): Read a PATINA artifact's depth off your own Bitcoin node, decode a marker by hand, recompute an artifact id, query an indexer, run the index yourself, and set two indexers against each other. Real commands, no trust in us.
+- [Transparency, who holds authority over PATINA and what it reaches](https://bitcoinuniverseio.github.io/patina/transparency.html): Supply with no plan behind it, zero allocations, the authority table, what is frozen and what can change, what the kill switches can and cannot reach, and live concentration figures read from a connected indexer.
+- [Risks, PATINA](https://bitcoinuniverseio.github.io/patina/risks.html): Every way PATINA can disappoint you, in one place: depth is not provenance, founding membership can be concentrated, buying resets depth, a wallet can spend a carrier by accident, and nobody owes this anything.
+- [Questions people actually ask, PATINA](https://bitcoinuniverseio.github.io/patina/faq.html): Plain answers about PATINA: what depth is, why moving resets it, what a Firstlight Seal costs, what happens when a carrier is spent below the minimum, whether a bundle can be split, and what an attestation does not prove.
+- [Press and brand, PATINA](https://bitcoinuniverseio.github.io/patina/press.html): Brand assets for PATINA: wordmark, protocol mark, favicon and social cards as SVG, a short description, a longer description, the palette in hex, and the rules for using any of it.
+
+The documentation is at https://bitcoinuniverseio.github.io/patina/docs/ and is organised into the sections
+below. Each page states its kind: introductory explains, operational is a
+procedure, normative is the rule as the specification states it, and
+generated means every printed value is computed and checked against the
+golden vectors.
+
+## Start here
+
+I want to understand PATINA. What an artifact is, what you own, and where the edges are.
+
+- [What PATINA is](https://bitcoinuniverseio.github.io/patina/docs/index.html): The one sentence, then the long version. Marked introductory.
+- [Firstlight Seals](https://bitcoinuniverseio.github.io/patina/docs/start/firstlight-seals.html): The founding cohort and how minting works. Marked introductory.
+- [What you actually own](https://bitcoinuniverseio.github.io/patina/docs/start/what-you-own.html): An outpoint, an endowment, and a history. Marked introductory.
+- [What it does not promise](https://bitcoinuniverseio.github.io/patina/docs/start/limits.html): The honest boundaries, stated up front. Marked introductory.
+
+## Using it
+
+I want a Seal, or I already own an artifact. Wallet setup, the mint, reading your artifact, and what to do when it goes wrong.
+
+- [Wallet setup](https://bitcoinuniverseio.github.io/patina/docs/using/wallet-setup.html): What your wallet must be able to do. Marked operational.
+- [Mint walkthrough](https://bitcoinuniverseio.github.io/patina/docs/using/mint.html): Commit, wait 144 blocks, reveal. Marked operational.
+- [Reading your artifact](https://bitcoinuniverseio.github.io/patina/docs/using/artifact-page.html): Every field on the artifact page. Marked operational.
+- [What resets depth](https://bitcoinuniverseio.github.io/patina/docs/using/depth-resets.html): The full list, and the one case that does not. Marked operational.
+- [Attestations](https://bitcoinuniverseio.github.io/patina/docs/using/attestations.html): Prove the key is still alive. Marked operational.
+- [Transferring an artifact](https://bitcoinuniverseio.github.io/patina/docs/using/transfer.html): Any move resets depth to zero. Marked operational.
+- [When something goes wrong](https://bitcoinuniverseio.github.io/patina/docs/using/recovery.html): Stuck reveals, wrong vouts, lost salts. Marked operational.
+
+## Protocol reference
+
+I want to verify an artifact, byte by byte. The grammar, the checks in order, the state machine, and every reason code.
+
+- [Identity and derivations](https://bitcoinuniverseio.github.io/patina/docs/protocol/identity.html): Domain tags and worked byte examples. Marked generated.
+- [Marker grammar](https://bitcoinuniverseio.github.io/patina/docs/protocol/marker-grammar.html): The byte table and the selection rule. Marked generated.
+- [SEED rules](https://bitcoinuniverseio.github.io/patina/docs/protocol/seed-rules.html): Six checks, in order. Marked normative.
+- [KEEP and the default rule](https://bitcoinuniverseio.github.io/patina/docs/protocol/keep-rules.html): How a successor is chosen. Marked normative.
+- [State machine](https://bitcoinuniverseio.github.io/patina/docs/protocol/state-machine.html): ALIVE, RELIC, and the transitions between. Marked normative.
+- [Rings](https://bitcoinuniverseio.github.io/patina/docs/protocol/rings.html): How a completed stretch is engraved. Marked normative.
+- [Depth and tiers](https://bitcoinuniverseio.github.io/patina/docs/protocol/depth-and-tiers.html): The full table with elapsed time. Marked normative.
+- [Reason codes](https://bitcoinuniverseio.github.io/patina/docs/protocol/reason-codes.html): All eighteen, and what each means for you. Marked normative.
+- [Reorg behavior](https://bitcoinuniverseio.github.io/patina/docs/protocol/reorgs.html): Rollback, replay, and finality. Marked normative.
+- [The upgrade boundary](https://bitcoinuniverseio.github.io/patina/docs/protocol/upgrade-boundary.html): What can change and what cannot. Marked normative.
+
+## Indexer and API
+
+I want to integrate PATINA. Types, endpoints, errors, and how to point them at your own instance.
+
+- [API conventions](https://bitcoinuniverseio.github.io/patina/docs/api/conventions.html): Types, cursors, and pagination. Marked normative.
+- [Endpoint reference](https://bitcoinuniverseio.github.io/patina/docs/api/endpoints.html): Every endpoint with real examples. Marked generated.
+- [Error taxonomy](https://bitcoinuniverseio.github.io/patina/docs/api/errors.html): Status codes and error bodies. Marked normative.
+- [Run your own indexer](https://bitcoinuniverseio.github.io/patina/docs/api/run-an-indexer.html): From a Bitcoin node to a served API. Marked operational.
+
+## Build a compatible implementation
+
+I want to build an indexer. The steps in order, the golden vectors, and how to settle a disagreement.
+
+- [Build it](https://bitcoinuniverseio.github.io/patina/docs/compat/build.html): The exact steps, in order. Marked operational.
+- [Golden vectors and state roots](https://bitcoinuniverseio.github.io/patina/docs/compat/golden-vectors.html): What the vectors cover and how to compare. Marked generated.
+- [Report a disagreement](https://bitcoinuniverseio.github.io/patina/docs/compat/disagreements.html): What to send so it can be resolved. Marked operational.
+
+## Operator guide
+
+I want to operate infrastructure. Deploy, sync, verify, back up, and what an incident can and cannot reach.
+
+- [Deploy and configure](https://bitcoinuniverseio.github.io/patina/docs/operator/deploy.html): Requirements, settings, and first run. Marked operational.
+- [Sync and reindex](https://bitcoinuniverseio.github.io/patina/docs/operator/run.html): Initial sync, catch up, full rebuild. Marked operational.
+- [Verify and monitor](https://bitcoinuniverseio.github.io/patina/docs/operator/verify.html): What to check and what to alert on. Marked operational.
+- [Back up and restore](https://bitcoinuniverseio.github.io/patina/docs/operator/backup.html): What is precious and what is derived. Marked operational.
+- [Incident actions](https://bitcoinuniverseio.github.io/patina/docs/operator/incidents.html): What can be paused and what cannot. Marked operational.
+
+## Creator guide
+
+I want to create deterministic artwork. Same inputs, same picture, everywhere, and the rules that keep it honest.
+
+- [Deterministic tier renders](https://bitcoinuniverseio.github.io/patina/docs/creator/tier-renders.html): Same inputs, same picture, everywhere. Marked normative.
+- [Publish a render pack](https://bitcoinuniverseio.github.io/patina/docs/creator/render-packs.html): Layout, manifest, and checks. Marked operational.
+- [Rules that keep renders honest](https://bitcoinuniverseio.github.io/patina/docs/creator/render-rules.html): What a render may never do. Marked normative.
+
+## Launch operations
+
+I am running the launch. The checklist, the timeline, the signals to watch, and the decision criteria.
+
+- [Pre launch checklist](https://bitcoinuniverseio.github.io/patina/docs/launch/checklist.html): Everything that must be true before announcing. Marked operational.
+- [Timeline](https://bitcoinuniverseio.github.io/patina/docs/launch/timeline.html): Announcement through day thirty. Marked operational.
+- [Monitoring and incident response](https://bitcoinuniverseio.github.io/patina/docs/launch/monitoring.html): Signals, thresholds, and the response table. Marked operational.
+- [Go, conditional go, no go](https://bitcoinuniverseio.github.io/patina/docs/launch/go-no-go.html): The criteria, decided in advance. Marked operational.
+
+## Glossary and FAQ
+
+I want a word defined, or a question answered. Every term used in these pages, and the questions people actually ask.
+
+- [Glossary](https://bitcoinuniverseio.github.io/patina/docs/reference/glossary.html): Every term used in these pages. Marked introductory.
+- [FAQ](https://bitcoinuniverseio.github.io/patina/docs/reference/faq.html): The questions people actually ask. Marked introductory.
+
+## Specification and vectors
+
+- [patina-protocol.md](https://bitcoinuniverseio.github.io/patina/patina-protocol.md): the specification the
+  deployment records and the golden vectors bind to by SHA-256.
+- [vectors/golden.json](https://bitcoinuniverseio.github.io/patina/vectors/golden.json): the golden vectors two
+  implementations compare against.
+- [vectors/manifest.json](https://bitcoinuniverseio.github.io/patina/vectors/manifest.json): what the vector set
+  covers, and the specification hash it was produced from.
+
+## Machine readable
+
+- [docs.manifest.json](https://bitcoinuniverseio.github.io/patina/docs.manifest.json): the documentation
+  manifest for this repository.
+- [sitemap.xml](https://bitcoinuniverseio.github.io/patina/sitemap.xml): the public pages above, as a sitemap.
+- [robots.txt](https://bitcoinuniverseio.github.io/patina/robots.txt): the crawl policy.
+
+## Source
+
+- [Repository](https://github.com/bitcoinuniverseio/patina): the protocol library, the command line tool,
+  the schemas, the deployment records and the source of these pages.
