@@ -33,7 +33,7 @@ jobs:
         shell: pwsh
     steps:
       - name: Provide universe host tools
-        uses: bitcoinuniverseio/universe-ci-actions/universe-host-tools@ca7d5a2893fd27f41c26f6b62549ccad8b3c46cb
+        uses: bitcoinuniverseio/universe-ci-actions/universe-host-tools@49c5ceb7e97bd33b567513b3135e0eb5525d89e5
       - name: Check out the exact requested revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -41,7 +41,7 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@8e24bc760556caa5ec8c7c497baaad2e9adcc912
+      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@49c5ceb7e97bd33b567513b3135e0eb5525d89e5
       - name: Check the site
         run: node site/tools/verify.mjs
 
@@ -90,6 +90,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Provide universe host tools
-        uses: bitcoinuniverseio/universe-ci-actions/universe-host-tools@ca7d5a2893fd27f41c26f6b62549ccad8b3c46cb
+        uses: bitcoinuniverseio/universe-ci-actions/universe-host-tools@49c5ceb7e97bd33b567513b3135e0eb5525d89e5
       - id: deployment
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5
