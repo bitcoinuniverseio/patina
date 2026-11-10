@@ -69,6 +69,7 @@ jobs:
       - name: The generated pages are reproducible
         run: |
           node site/tools/build-cards.mjs
+          node site/tools/build-llms-txt.mjs --check
           node docs/tools/stamp-meta.mjs
           node docs/tools/build-search-index.mjs
           git diff --exit-code -- site docs
