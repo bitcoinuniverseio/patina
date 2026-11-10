@@ -24,7 +24,7 @@ jobs:
     # in the private .github-private, which a public caller cannot resolve.
     # Target the ultra pool directly until the router is published somewhere a
     # public repository can reach.
-    runs-on: [self-hosted, universe-runners-1]
+    runs-on: [self-hosted, Linux, X64, universe]
     timeout-minutes: 10
     defaults:
       run:
