@@ -12,9 +12,7 @@ on:
         type: string
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: production-${{ github.repository }}
@@ -75,21 +73,17 @@ jobs:
       - name: Record the immutable deployment revision
         run: git rev-parse HEAD
 
-      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
-
-      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
-        with:
-          path: public
-
-  deploy:
-    needs: build
-    runs-on: [self-hosted, Linux, X64, universe]
-    timeout-minutes: 10
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Provide universe host tools
-        uses: bitcoinuniverseio/universe-ci-actions/universe-host-tools@49c5ceb7e97bd33b567513b3135e0eb5525d89e5
-      - id: deployment
-        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
+      - name: Publish to the gh-pages branch
+        # Branch publishing keeps the site out of Actions artifact storage,
+        # which the Free plan shares with private packages and is full.
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd public
+          touch .nojekyll
+          git init -q -b gh-pages
+          git add -A
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -qm "Publish ${GITHUB_SHA}"
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c http.extraheader="AUTHORIZATION: basic ${auth}" push -qf "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git" HEAD:gh-pages
