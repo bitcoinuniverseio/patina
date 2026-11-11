@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Report a disagreement | PATINA docs</title>
+<meta name="description" content="What to collect and send when two PATINA implementations produce different state from the same chain, and how the disagreement gets resolved.">
+<!-- sharing metadata, written by docs/tools/stamp-meta.mjs -->
+<link rel="canonical" href="https://bitcoinuniverseio.github.io/patina/docs/compat/disagreements.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PATINA">
+<meta property="og:title" content="Report a disagreement, PATINA documentation">
+<meta property="og:description" content="What to collect and send when two PATINA implementations produce different state from the same chain, and how the disagreement gets resolved.">
+<meta property="og:url" content="https://bitcoinuniverseio.github.io/patina/docs/compat/disagreements.html">
+<meta property="og:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-docs.svg">
+<meta property="og:image:alt" content="Stacked engraved plates, one per section of the PATINA documentation.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Report a disagreement, PATINA documentation">
+<meta name="twitter:description" content="What to collect and send when two PATINA implementations produce different state from the same chain, and how the disagreement gets resolved.">
+<meta name="twitter:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-docs.svg">
+<meta name="theme-color" content="#14110d">
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml">
+<!-- end sharing metadata -->
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('patina-docs-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}</script>
+</head>
+<body data-page="compat/disagreements.html" data-root="../">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="mark" aria-hidden="true"></span><b>PATINA</b> <span class="sub">docs</span></a>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"><nav id="nav" aria-label="Documentation contents"></nav></aside>
+<!-- scriptless contents, written by docs/tools/stamp-meta.mjs -->
+<noscript>
+  <nav class="noscript-nav" aria-label="Documentation contents">
+    <p>The contents list, the breadcrumb and the previous and next links on this site are built by a small script. With scripts unavailable, here is every page.</p>
+    <p><a href="../../index.html">The public PATINA site</a></p>
+    <h2>Start here</h2>
+    <ul>
+      <li><a href="../index.html">What PATINA is</a></li>
+      <li><a href="../start/firstlight-seals.html">Firstlight Seals</a></li>
+      <li><a href="../start/what-you-own.html">What you actually own</a></li>
+      <li><a href="../start/limits.html">What it does not promise</a></li>
+    </ul>
+    <h2>Using it</h2>
+    <ul>
+      <li><a href="../using/wallet-setup.html">Wallet setup</a></li>
+      <li><a href="../using/mint.html">Mint walkthrough</a></li>
+      <li><a href="../using/artifact-page.html">Reading your artifact</a></li>
+      <li><a href="../using/depth-resets.html">What resets depth</a></li>
+      <li><a href="../using/attestations.html">Attestations</a></li>
+      <li><a href="../using/transfer.html">Transferring an artifact</a></li>
+      <li><a href="../using/recovery.html">When something goes wrong</a></li>
+    </ul>
+    <h2>Protocol reference</h2>
+    <ul>
+      <li><a href="../protocol/identity.html">Identity and derivations</a></li>
+      <li><a href="../protocol/marker-grammar.html">Marker grammar</a></li>
+      <li><a href="../protocol/seed-rules.html">SEED rules</a></li>
+      <li><a href="../protocol/keep-rules.html">KEEP and the default rule</a></li>
+      <li><a href="../protocol/state-machine.html">State machine</a></li>
+      <li><a href="../protocol/rings.html">Rings</a></li>
+      <li><a href="../protocol/depth-and-tiers.html">Depth and tiers</a></li>
+      <li><a href="../protocol/reason-codes.html">Reason codes</a></li>
+      <li><a href="../protocol/reorgs.html">Reorg behavior</a></li>
+      <li><a href="../protocol/upgrade-boundary.html">The upgrade boundary</a></li>
+    </ul>
+    <h2>Indexer and API</h2>
+    <ul>
+      <li><a href="../api/conventions.html">API conventions</a></li>
+      <li><a href="../api/endpoints.html">Endpoint reference</a></li>
+      <li><a href="../api/errors.html">Error taxonomy</a></li>
+      <li><a href="../api/run-an-indexer.html">Run your own indexer</a></li>
+    </ul>
+    <h2>Build a compatible implementation</h2>
+    <ul>
+      <li><a href="../compat/build.html">Build it</a></li>
+      <li><a href="../compat/golden-vectors.html">Golden vectors and state roots</a></li>
+      <li><a href="../compat/disagreements.html">Report a disagreement</a></li>
+    </ul>
+    <h2>Operator guide</h2>
+    <ul>
+      <li><a href="../operator/deploy.html">Deploy and configure</a></li>
+      <li><a href="../operator/run.html">Sync and reindex</a></li>
+      <li><a href="../operator/verify.html">Verify and monitor</a></li>
+      <li><a href="../operator/backup.html">Back up and restore</a></li>
+      <li><a href="../operator/incidents.html">Incident actions</a></li>
+    </ul>
+    <h2>Creator guide</h2>
+    <ul>
+      <li><a href="../creator/tier-renders.html">Deterministic tier renders</a></li>
+      <li><a href="../creator/render-packs.html">Publish a render pack</a></li>
+      <li><a href="../creator/render-rules.html">Rules that keep renders honest</a></li>
+    </ul>
+    <h2>Launch operations</h2>
+    <ul>
+      <li><a href="../launch/checklist.html">Pre launch checklist</a></li>
+      <li><a href="../launch/timeline.html">Timeline</a></li>
+      <li><a href="../launch/monitoring.html">Monitoring and incident response</a></li>
+      <li><a href="../launch/go-no-go.html">Go, conditional go, no go</a></li>
+    </ul>
+    <h2>Glossary and FAQ</h2>
+    <ul>
+      <li><a href="../reference/glossary.html">Glossary</a></li>
+      <li><a href="../reference/faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</noscript>
+<!-- end scriptless contents -->
+  <main class="content" id="content">
+    <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
+    <article>
+      <h1>Report a disagreement</h1>
+      <p class="lede">A disagreement between two implementations is the most valuable bug report this project can
+        receive. It means someone's artifacts mean two different things.</p>
+
+      <div class="willknow">
+        <span class="lbl">What you will know after this page</span>
+        <ul>
+          <li>The six ordinary causes to rule out before you write anything up, starting with two indexers sitting
+            at different heights.</li>
+          <li>The seven things to collect, and why the reduced vector is worth more than the other six
+            together.</li>
+          <li>Where the report goes, and why a state disagreement starts at the protocol repository rather than
+            the indexer one.</li>
+          <li>What a gap in the baseline changes, including <code>spec_sha256</code>.</li>
+          <li>What to do with affected artifacts while the question is still open, and what never to do to your own
+            code in the meantime.</li>
+        </ul>
+      </div>
+
+      <h2>First, rule out the boring causes</h2>
+      <p>Six checks, all of them cheap, and any one of them can end the question before it starts. Begin with the
+        first row: one indexer is further behind than the other, and being behind is not being wrong.</p>
+      <div class="tablewrap">
+        <table>
+          <caption>Check these before writing anything up.</caption>
+          <thead><tr><th scope="col">Cause</th><th scope="col">How to check</th></tr></thead>
+          <tbody>
+            <tr><td>Different heights</td><td>Compare <code>indexed_height</code> from both. An indexer that is behind is not wrong.</td></tr>
+            <tr><td>Different networks</td><td>Compare <code>network</code>.</td></tr>
+            <tr><td>Different specs</td><td>Compare <code>spec_sha256</code>. Different specs are allowed to differ.</td></tr>
+            <tr><td>One is mid replay</td><td>Check <code>/ready</code>. During a reorg replay an indexer should refuse traffic, not serve half state.</td></tr>
+            <tr><td>A reorg between the two calls</td><td>Repeat both calls and see whether the difference is stable.</td></tr>
+            <tr><td>A known deviation</td><td>Read <code class="mono">docs/deviations.md</code> in this repo. A recorded deviation is a known difference, not a new one.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>If all six are clear and the state still differs, it is a real disagreement.</p>
+
+      <h2>What to collect</h2>
+      <p>Seven items, in the order that narrows the search. The first three locate the disagreement, the next
+        three record what happened at that height and which rule you think it breaks, and the last one turns the
+        whole thing into a test somebody can run.</p>
+      <ol>
+        <li><strong>Both status responses.</strong> Full JSON from <code>GET /patina/status</code> on each
+          side.</li>
+        <li><strong>The first differing height.</strong> Bisect until you have the single block where the state
+          roots diverge.</li>
+        <li><strong>Both state roots at that height</strong>, and both at the height before it.</li>
+        <li><strong>The raw block.</strong> Its hash, and the raw hex of the transaction that seems responsible.</li>
+        <li><strong>Both interpretations.</strong> What each implementation did with that transaction, in plain
+          words: created an artifact, chose a successor, recorded a reason code.</li>
+        <li><strong>The baseline rule you think applies</strong>, quoted, with the section it comes from.</li>
+        <li><strong>A reduced vector.</strong> The smallest scenario that reproduces the difference.</li>
+      </ol>
+      <div class="note">
+        <span class="lbl">The reduced vector is the important part</span>
+        <p>A vector turns an argument into a test. Everything else is context. If you can only produce one artefact
+          from your investigation, produce the vector.</p>
+      </div>
+
+      <h2>Report template</h2>
+      <p>Copy this as it stands and fill in every line. Leave a field blank rather than deleting it, because a
+        blank line says you could not determine that value, and a missing line says nothing at all.</p>
+      <pre data-label="Copy this"><code>Summary
+  One sentence: what differs, at what height, on what network.
+
+Implementations
+  A: name, indexer_version, parser_version, spec_sha256
+  B: name, indexer_version, parser_version, spec_sha256
+
+Divergence
+  network:
+  first differing height:
+  block hash:
+  state root A:
+  state root B:
+  state root at height - 1 (both, to show they agreed before):
+
+Transaction
+  txid:
+  raw hex:
+  which output carries the marker:
+  marker bytes:
+
+Interpretations
+  A did:
+  B did:
+
+Baseline rule
+  quoted text, and which section it is from
+
+Reduced vector
+  attached scenario file, or inline
+
+Impact
+  how many artifacts are affected, and whether any are founding</code></pre>
+
+      <h2>Where to send it</h2>
+      <p>Open an issue on the protocol repository <code>bitcoinuniverse/patina</code>. Indexer specific bugs
+        belong on <code>bitcoinuniverse/index-patina</code>, but a state disagreement always goes to the protocol
+        repository first, because the question is what the rule says before it is whose code is wrong.</p>
+      <p>Report it in public. A disagreement fixed in private leaves everyone else running whichever behaviour they
+        happened to implement. Publishing it is the same commitment the project makes about everything else it
+        knows, which is written out on <a href="../../transparency.html">Transparency</a>.</p>
+
+      <h2>How it gets resolved</h2>
+      <ol class="steps">
+        <li>
+          <h3>Reproduce</h3>
+          <p>The reduced vector is run against both implementations and the difference is confirmed.</p>
+        </li>
+        <li>
+          <h3>Decide what the baseline requires</h3>
+          <p>The rule is either already clear, in which case one implementation has a bug, or it is ambiguous, in
+            which case the baseline has a gap.</p>
+        </li>
+        <li>
+          <h3>Write it down</h3>
+          <p>A bug becomes a fix. A gap becomes a change to the baseline, which changes
+            <code>spec_sha256</code> and goes through
+            <a href="../protocol/upgrade-boundary.html">the upgrade boundary</a>.</p>
+        </li>
+        <li>
+          <h3>Add the vector permanently</h3>
+          <p>The reduced case joins the golden vectors so the same disagreement cannot come back.</p>
+        </li>
+        <li>
+          <h3>Publish the outcome</h3>
+          <p>Including which artifacts were affected and how their state changed once both sides agreed.</p>
+        </li>
+      </ol>
+
+      <h2>While it is unresolved</h2>
+      <ul>
+        <li>Say so publicly. An unresolved disagreement is a fact about the system, not an embarrassment to
+          manage.</li>
+        <li>Do not quietly switch behaviour to match the other side. That destroys the evidence and can turn one
+          bug into two.</li>
+        <li>Do not present affected artifacts as settled. Show that their state is disputed and at what
+          height.</li>
+        <li>Keep serving. An indexer with a known, published disagreement is more useful than one that hides
+          it.</li>
+      </ul>
+    </article>
+    <nav class="pager" id="pager" aria-label="Previous and next page"></nav>
+  </main>
+  <aside class="toc" id="toc" aria-label="On this page"></aside>
+</div>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/shell.js"></script>
+</body>
+</html>

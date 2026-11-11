@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reading your artifact | PATINA docs</title>
+<meta name="description" content="Every field on a PATINA artifact page, what it means, and how to verify it yourself against the chain.">
+<!-- sharing metadata, written by docs/tools/stamp-meta.mjs -->
+<link rel="canonical" href="https://bitcoinuniverseio.github.io/patina/docs/using/artifact-page.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PATINA">
+<meta property="og:title" content="Reading your artifact, PATINA documentation">
+<meta property="og:description" content="Every field on a PATINA artifact page, what it means, and how to verify it yourself against the chain.">
+<meta property="og:url" content="https://bitcoinuniverseio.github.io/patina/docs/using/artifact-page.html">
+<meta property="og:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-mint.svg">
+<meta property="og:image:alt" content="Two transactions on a block height line with a gap of at least 144 blocks between them.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reading your artifact, PATINA documentation">
+<meta name="twitter:description" content="Every field on a PATINA artifact page, what it means, and how to verify it yourself against the chain.">
+<meta name="twitter:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-mint.svg">
+<meta name="theme-color" content="#14110d">
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml">
+<!-- end sharing metadata -->
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('patina-docs-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}</script>
+</head>
+<body data-page="using/artifact-page.html" data-root="../">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="mark" aria-hidden="true"></span><b>PATINA</b> <span class="sub">docs</span></a>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"><nav id="nav" aria-label="Documentation contents"></nav></aside>
+<!-- scriptless contents, written by docs/tools/stamp-meta.mjs -->
+<noscript>
+  <nav class="noscript-nav" aria-label="Documentation contents">
+    <p>The contents list, the breadcrumb and the previous and next links on this site are built by a small script. With scripts unavailable, here is every page.</p>
+    <p><a href="../../index.html">The public PATINA site</a></p>
+    <h2>Start here</h2>
+    <ul>
+      <li><a href="../index.html">What PATINA is</a></li>
+      <li><a href="../start/firstlight-seals.html">Firstlight Seals</a></li>
+      <li><a href="../start/what-you-own.html">What you actually own</a></li>
+      <li><a href="../start/limits.html">What it does not promise</a></li>
+    </ul>
+    <h2>Using it</h2>
+    <ul>
+      <li><a href="../using/wallet-setup.html">Wallet setup</a></li>
+      <li><a href="../using/mint.html">Mint walkthrough</a></li>
+      <li><a href="../using/artifact-page.html">Reading your artifact</a></li>
+      <li><a href="../using/depth-resets.html">What resets depth</a></li>
+      <li><a href="../using/attestations.html">Attestations</a></li>
+      <li><a href="../using/transfer.html">Transferring an artifact</a></li>
+      <li><a href="../using/recovery.html">When something goes wrong</a></li>
+    </ul>
+    <h2>Protocol reference</h2>
+    <ul>
+      <li><a href="../protocol/identity.html">Identity and derivations</a></li>
+      <li><a href="../protocol/marker-grammar.html">Marker grammar</a></li>
+      <li><a href="../protocol/seed-rules.html">SEED rules</a></li>
+      <li><a href="../protocol/keep-rules.html">KEEP and the default rule</a></li>
+      <li><a href="../protocol/state-machine.html">State machine</a></li>
+      <li><a href="../protocol/rings.html">Rings</a></li>
+      <li><a href="../protocol/depth-and-tiers.html">Depth and tiers</a></li>
+      <li><a href="../protocol/reason-codes.html">Reason codes</a></li>
+      <li><a href="../protocol/reorgs.html">Reorg behavior</a></li>
+      <li><a href="../protocol/upgrade-boundary.html">The upgrade boundary</a></li>
+    </ul>
+    <h2>Indexer and API</h2>
+    <ul>
+      <li><a href="../api/conventions.html">API conventions</a></li>
+      <li><a href="../api/endpoints.html">Endpoint reference</a></li>
+      <li><a href="../api/errors.html">Error taxonomy</a></li>
+      <li><a href="../api/run-an-indexer.html">Run your own indexer</a></li>
+    </ul>
+    <h2>Build a compatible implementation</h2>
+    <ul>
+      <li><a href="../compat/build.html">Build it</a></li>
+      <li><a href="../compat/golden-vectors.html">Golden vectors and state roots</a></li>
+      <li><a href="../compat/disagreements.html">Report a disagreement</a></li>
+    </ul>
+    <h2>Operator guide</h2>
+    <ul>
+      <li><a href="../operator/deploy.html">Deploy and configure</a></li>
+      <li><a href="../operator/run.html">Sync and reindex</a></li>
+      <li><a href="../operator/verify.html">Verify and monitor</a></li>
+      <li><a href="../operator/backup.html">Back up and restore</a></li>
+      <li><a href="../operator/incidents.html">Incident actions</a></li>
+    </ul>
+    <h2>Creator guide</h2>
+    <ul>
+      <li><a href="../creator/tier-renders.html">Deterministic tier renders</a></li>
+      <li><a href="../creator/render-packs.html">Publish a render pack</a></li>
+      <li><a href="../creator/render-rules.html">Rules that keep renders honest</a></li>
+    </ul>
+    <h2>Launch operations</h2>
+    <ul>
+      <li><a href="../launch/checklist.html">Pre launch checklist</a></li>
+      <li><a href="../launch/timeline.html">Timeline</a></li>
+      <li><a href="../launch/monitoring.html">Monitoring and incident response</a></li>
+      <li><a href="../launch/go-no-go.html">Go, conditional go, no go</a></li>
+    </ul>
+    <h2>Glossary and FAQ</h2>
+    <ul>
+      <li><a href="../reference/glossary.html">Glossary</a></li>
+      <li><a href="../reference/faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</noscript>
+<!-- end scriptless contents -->
+  <main class="content" id="content">
+    <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
+    <article>
+      <h1>Reading your artifact</h1>
+      <p class="lede">Every field on the page comes from one API call, and every field can be checked against the
+        chain without trusting the page.</p>
+
+      <div class="willknow">
+        <span class="lbl">What you will know after this page</span>
+        <ul>
+          <li>What every field in the artifact record means, including why depth is computed when you ask and never
+            stored per block.</li>
+          <li>Why the birth fields never change and the carrier does, and which one to protect.</li>
+          <li>How to recompute the artifact id in one command and compare it against the id you were handed.</li>
+          <li>What <code>ALIVE</code> and <code>RELIC</code> mean, and which of the two is terminal.</li>
+          <li>Why a share card without the block height it was taken at is a card nobody can check.</li>
+        </ul>
+      </div>
+
+      <h2>The record</h2>
+      <p>This is the shape of one artifact record, with placeholders where the hashes go. Read it once now, because
+        the rest of the page walks the same fields in the same order.</p>
+      <pre data-label="GET /patina/artifacts/:id, shape"><code>{
+  "artifact_id": "...",
+  "birth_txid": "...",
+  "birth_height": 0,
+  "birth_vout": 0,
+  "endowment_sats": "100000",
+  "founding": true,
+  "status": "ALIVE",
+  "carrier": { "txid": "...", "vout": 0, "height": 0, "value": "100000" },
+  "depth": 0,
+  "tier": 0,
+  "tier_name": "Raw",
+  "next_tier": 1,
+  "blocks_to_next_tier": 1008,
+  "rings": []
+}</code></pre>
+      <p>Satoshi values are decimal strings so that large numbers survive JSON parsers. Heights are numbers. See
+        <a href="../api/conventions.html">API conventions</a>.</p>
+
+      <h2>Field by field</h2>
+      <dl class="fields">
+        <dt>artifact_id</dt>
+        <dd>The permanent id, lowercase hex. Derived from your reveal transaction and the carrier index at birth.
+          It never changes, not even when the artifact moves to a new carrier.</dd>
+
+        <dt>birth_txid, birth_height, birth_vout</dt>
+        <dd>Where the artifact was created. This is history, not location. After a move, the carrier changes but
+          these do not.</dd>
+
+        <dt>endowment_sats</dt>
+        <dd>The value the carrier held at birth. It is your bitcoin. For founding Seals it is at least 100000
+          sats. It never changes, whatever a later carrier holds. What the current carrier holds is
+          <code>carrier.value</code>.</dd>
+
+        <dt>founding</dt>
+        <dd>True only for Firstlight Seals: the commit output confirmed inside the founding window and the reveal
+          landed before the grace period ended. Nothing can flip this later.</dd>
+
+        <dt>status</dt>
+        <dd><code>ALIVE</code> means a carrier exists and depth is accumulating. <code>RELIC</code> means the last
+          carrier was spent with no eligible successor. Relic is terminal.</dd>
+
+        <dt>carrier</dt>
+        <dd>The outpoint the artifact is riding right now, with the height it was created and its value. This is
+          the output to protect. It is <code>null</code> for a relic.</dd>
+
+        <dt>depth</dt>
+        <dd><code>tip_height - carrier.height</code>, computed when you ask. It is not stored per block and it is
+          not cumulative across rings. A fresh carrier is depth zero even if the artifact is five years old.</dd>
+
+        <dt>tier, tier_name</dt>
+        <dd>The highest tier whose threshold is not greater than the current depth, and its name. Raw through
+          Elder. See <a href="../protocol/depth-and-tiers.html">Depth and tiers</a>.</dd>
+
+        <dt>next_tier, blocks_to_next_tier</dt>
+        <dd>The next threshold up and how many blocks away it is. At Elder there is no next tier, and both fields
+          are <code>null</code>.</dd>
+
+        <dt>rings</dt>
+        <dd>Completed stretches, oldest first. Empty for an artifact that has never moved.</dd>
+      </dl>
+
+      <h2>Verify it yourself</h2>
+      <p>Nothing here requires trusting the indexer. Three checks with a block explorer or your own node:</p>
+      <ol>
+        <li><strong>Carrier is unspent.</strong> Look up <code>carrier.txid</code> and confirm output
+          <code>carrier.vout</code> has not been spent. If it has, the indexer is behind or wrong.</li>
+        <li><strong>Depth arithmetic.</strong> Subtract <code>carrier.height</code> from the current block height.
+          It should match <code>depth</code>, allowing for blocks found while you were reading.</li>
+        <li><strong>Artifact id.</strong> Take <code>birth_txid</code>, reverse the bytes, append
+          <code>birth_vout</code> as four little endian bytes, prefix the tag, hash once with SHA-256. It should
+          equal <code>artifact_id</code>.</li>
+      </ol>
+      <pre data-label="Check the id with node"><code>node -e '
+const { createHash } = require("crypto");
+const txid = "1d29e5ba13cecf357a9218518914617f872eeaa83a33bf6be6fd78dfdd1ce9c6";
+const vout = 1;
+const wire = Buffer.from(txid, "hex").reverse();
+const le = Buffer.alloc(4); le.writeUInt32LE(vout, 0);
+const pre = Buffer.concat([Buffer.from("PTNA/artifact", "ascii"), wire, le]);
+console.log(createHash("sha256").update(pre).digest("hex"));
+'
+# d3b8d3013c23dd3df76882034df80935ba55aa75772007f0b142b63adce5eff0</code></pre>
+
+      <h2>Reading the rings</h2>
+      <p>Each ring is one completed stretch. Read them oldest to newest to see the artifact's life. The public page
+        on <a href="../../depth.html">how depth works</a> shows a stretch closing into a ring if you want the
+        picture before the field names.</p>
+      <div class="tablewrap">
+        <table>
+          <caption>How to read a ring entry.</caption>
+          <thead><tr><th scope="col">Field</th><th scope="col">Reads as</th></tr></thead>
+          <tbody>
+            <tr><td><code>start_height</code> and <code>end_height</code></td><td>The blocks the stretch ran between</td></tr>
+            <tr><td><code>depth</code></td><td>How deep it got before it ended, in blocks</td></tr>
+            <tr><td><code>carried_value</code></td><td>What the carrier held during that stretch</td></tr>
+            <tr><td><code>successor_txid</code> and <code>successor_vout</code></td><td>The transaction that ended it and where the artifact went next</td></tr>
+            <tr><td><code>relic</code></td><td>True on the final ring of an artifact that ended</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A deep ring in the past and a shallow current depth is a normal, honest picture. It says the holder went
+        deep once, then moved. That is information, not a flaw.</p>
+
+      <h2>What the page will not show you</h2>
+      <ul>
+        <li>A holder name, a profile, or a history of owners. The indexer does not know any of that.</li>
+        <li>A price or an estimated value.</li>
+        <li>A rank or a rarity score invented by us.</li>
+        <li>A countdown that implies scarcity. The only countdowns are real ones: blocks to the next tier, and
+          blocks remaining in the window while it is open.</li>
+      </ul>
+      <p>If the artifact record cannot be fetched, the page says so and shows nothing rather than showing a stale
+        or invented number.</p>
+
+      <h2>Share cards</h2>
+      <p><code>GET /patina/artifacts/:id/card</code> returns the payload behind a share image: id, tier, depth,
+        ring count, and the block height the numbers were taken at. The height matters. A card without the height
+        it was generated at is a card you cannot check.</p>
+    </article>
+    <nav class="pager" id="pager" aria-label="Previous and next page"></nav>
+  </main>
+  <aside class="toc" id="toc" aria-label="On this page"></aside>
+</div>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/shell.js"></script>
+</body>
+</html>

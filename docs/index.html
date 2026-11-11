@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What PATINA is | PATINA docs</title>
+<meta name="description" content="PATINA is a Bitcoin artifact whose state deepens for every block its carrier output stays unspent, resets when it moves, and engraves each completed stretch as a ring.">
+<!-- sharing metadata, written by docs/tools/stamp-meta.mjs -->
+<link rel="canonical" href="https://bitcoinuniverseio.github.io/patina/docs/index.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PATINA">
+<meta property="og:title" content="What PATINA is, PATINA documentation">
+<meta property="og:description" content="PATINA is a Bitcoin artifact whose state deepens for every block its carrier output stays unspent, resets when it moves, and engraves each completed stretch as a ring.">
+<meta property="og:url" content="https://bitcoinuniverseio.github.io/patina/docs/index.html">
+<meta property="og:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-firstlight.svg">
+<meta property="og:image:alt" content="The Firstlight seal mark, a cut section with its kerf opened so light reaches the core.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What PATINA is, PATINA documentation">
+<meta name="twitter:description" content="PATINA is a Bitcoin artifact whose state deepens for every block its carrier output stays unspent, resets when it moves, and engraves each completed stretch as a ring.">
+<meta name="twitter:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-firstlight.svg">
+<meta name="theme-color" content="#14110d">
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+<!-- end sharing metadata -->
+<link rel="stylesheet" href="assets/style.css">
+<script>try{var t=localStorage.getItem('patina-docs-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}</script>
+</head>
+<body data-page="index.html" data-root="">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span><b>PATINA</b> <span class="sub">docs</span></a>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"><nav id="nav" aria-label="Documentation contents"></nav></aside>
+<!-- scriptless contents, written by docs/tools/stamp-meta.mjs -->
+<noscript>
+  <nav class="noscript-nav" aria-label="Documentation contents">
+    <p>The contents list, the breadcrumb and the previous and next links on this site are built by a small script. With scripts unavailable, here is every page.</p>
+    <p><a href="../index.html">The public PATINA site</a></p>
+    <h2>Start here</h2>
+    <ul>
+      <li><a href="index.html">What PATINA is</a></li>
+      <li><a href="start/firstlight-seals.html">Firstlight Seals</a></li>
+      <li><a href="start/what-you-own.html">What you actually own</a></li>
+      <li><a href="start/limits.html">What it does not promise</a></li>
+    </ul>
+    <h2>Using it</h2>
+    <ul>
+      <li><a href="using/wallet-setup.html">Wallet setup</a></li>
+      <li><a href="using/mint.html">Mint walkthrough</a></li>
+      <li><a href="using/artifact-page.html">Reading your artifact</a></li>
+      <li><a href="using/depth-resets.html">What resets depth</a></li>
+      <li><a href="using/attestations.html">Attestations</a></li>
+      <li><a href="using/transfer.html">Transferring an artifact</a></li>
+      <li><a href="using/recovery.html">When something goes wrong</a></li>
+    </ul>
+    <h2>Protocol reference</h2>
+    <ul>
+      <li><a href="protocol/identity.html">Identity and derivations</a></li>
+      <li><a href="protocol/marker-grammar.html">Marker grammar</a></li>
+      <li><a href="protocol/seed-rules.html">SEED rules</a></li>
+      <li><a href="protocol/keep-rules.html">KEEP and the default rule</a></li>
+      <li><a href="protocol/state-machine.html">State machine</a></li>
+      <li><a href="protocol/rings.html">Rings</a></li>
+      <li><a href="protocol/depth-and-tiers.html">Depth and tiers</a></li>
+      <li><a href="protocol/reason-codes.html">Reason codes</a></li>
+      <li><a href="protocol/reorgs.html">Reorg behavior</a></li>
+      <li><a href="protocol/upgrade-boundary.html">The upgrade boundary</a></li>
+    </ul>
+    <h2>Indexer and API</h2>
+    <ul>
+      <li><a href="api/conventions.html">API conventions</a></li>
+      <li><a href="api/endpoints.html">Endpoint reference</a></li>
+      <li><a href="api/errors.html">Error taxonomy</a></li>
+      <li><a href="api/run-an-indexer.html">Run your own indexer</a></li>
+    </ul>
+    <h2>Build a compatible implementation</h2>
+    <ul>
+      <li><a href="compat/build.html">Build it</a></li>
+      <li><a href="compat/golden-vectors.html">Golden vectors and state roots</a></li>
+      <li><a href="compat/disagreements.html">Report a disagreement</a></li>
+    </ul>
+    <h2>Operator guide</h2>
+    <ul>
+      <li><a href="operator/deploy.html">Deploy and configure</a></li>
+      <li><a href="operator/run.html">Sync and reindex</a></li>
+      <li><a href="operator/verify.html">Verify and monitor</a></li>
+      <li><a href="operator/backup.html">Back up and restore</a></li>
+      <li><a href="operator/incidents.html">Incident actions</a></li>
+    </ul>
+    <h2>Creator guide</h2>
+    <ul>
+      <li><a href="creator/tier-renders.html">Deterministic tier renders</a></li>
+      <li><a href="creator/render-packs.html">Publish a render pack</a></li>
+      <li><a href="creator/render-rules.html">Rules that keep renders honest</a></li>
+    </ul>
+    <h2>Launch operations</h2>
+    <ul>
+      <li><a href="launch/checklist.html">Pre launch checklist</a></li>
+      <li><a href="launch/timeline.html">Timeline</a></li>
+      <li><a href="launch/monitoring.html">Monitoring and incident response</a></li>
+      <li><a href="launch/go-no-go.html">Go, conditional go, no go</a></li>
+    </ul>
+    <h2>Glossary and FAQ</h2>
+    <ul>
+      <li><a href="reference/glossary.html">Glossary</a></li>
+      <li><a href="reference/faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</noscript>
+<!-- end scriptless contents -->
+  <main class="content" id="content">
+    <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
+    <article>
+      <h1>What PATINA is</h1>
+      <p class="lede">PATINA is a Bitcoin artifact whose state deepens for every block its carrier output stays
+        unspent, resets to zero the moment that output moves, and permanently engraves each completed holding
+        stretch as a ring.</p>
+
+      <div class="willknow">
+        <span class="lbl">What you will know after this page</span>
+        <ul>
+          <li>How depth is computed, and why nobody has to be trusted to compute it.</li>
+          <li>What a ring is, and which part of an artifact a move can never take back.</li>
+          <li>What a Firstlight Seal is and what it costs.</li>
+          <li>Which of these pages binds, which explains, and which is generated from the vectors.</li>
+        </ul>
+      </div>
+
+      <h2>Start where you actually are</h2>
+      <p>These pages hold the whole protocol, the API, the operator procedures and the conformance material. Rather
+        than reading them in order, pick the sentence you would have said out loud before you arrived.</p>
+
+      <ul class="intents">
+        <li>
+          <a href="start/what-you-own.html">
+            <span class="i-said">I want to understand PATINA</span>
+            <span class="i-desc">What an artifact is, what you own, and where the honest edges are.</span>
+            <span class="i-where">Start here, four pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="start/firstlight-seals.html">
+            <span class="i-said">I want a Firstlight Seal</span>
+            <span class="i-desc">The founding cohort, the window, and what the free mint actually costs.</span>
+            <span class="i-where">Start here, then Using it</span>
+          </a>
+        </li>
+        <li>
+          <a href="using/artifact-page.html">
+            <span class="i-said">I already own an artifact</span>
+            <span class="i-desc">Every field on the artifact page, what resets depth, and how to prove the key is alive.</span>
+            <span class="i-where">Using it, seven pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="protocol/identity.html">
+            <span class="i-said">I want to verify an artifact</span>
+            <span class="i-desc">Recompute the id, decode the marker, and check the bytes against the vectors.</span>
+            <span class="i-where">Protocol reference, ten pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="api/endpoints.html">
+            <span class="i-said">I want to integrate PATINA</span>
+            <span class="i-desc">Types, cursors, every endpoint with examples, and the error taxonomy.</span>
+            <span class="i-where">Indexer and API, four pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="compat/build.html">
+            <span class="i-said">I want to build an indexer</span>
+            <span class="i-desc">The steps in order, the golden vectors, and how to compare state roots.</span>
+            <span class="i-where">Build a compatible implementation, three pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="operator/deploy.html">
+            <span class="i-said">I want to operate infrastructure</span>
+            <span class="i-desc">Deploy, sync, verify, back up, and what an incident can and cannot reach.</span>
+            <span class="i-where">Operator guide, five pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="creator/tier-renders.html">
+            <span class="i-said">I want to create deterministic artwork</span>
+            <span class="i-desc">Same inputs, same picture, everywhere, and the rules that keep a render honest.</span>
+            <span class="i-where">Creator guide, three pages</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="footnote">Looking for the shorter version, with the pictures? The
+        <a href="../index.html">public site</a> explains the same protocol at a different depth.</p>
+
+      <h2>The longer explanation</h2>
+      <p>Every PATINA artifact rides on one specific unspent transaction output. That output is called the
+        <strong>carrier</strong>. The artifact has one number that matters, its <strong>depth</strong>, and the number
+        is computed the same way by everyone:</p>
+      <pre data-label="Depth"><code>depth = current_block_height - carrier_creation_height</code></pre>
+      <p>Nothing accrues off chain. Nothing is minted per block. There is no staking contract, no lockup, and no
+        counterparty. The chain already records when an output was created, so depth is a subtraction that any
+        observer can redo from a block explorer.</p>
+      <p>Spending the carrier resets depth to zero. This rule is not enforced by code that could be patched or
+        bribed. It is inherited from how Bitcoin works. Spending an output destroys it, and a destroyed output has
+        no age. The artifact follows the money into a successor output, and the successor is brand new, so its
+        depth starts at zero.</p>
+      <p>When a stretch ends, it is not erased. The indexer engraves it as a <strong>ring</strong>: a permanent
+        record of the height the stretch started, the height it ended, how deep it got, and how many sats it
+        carried. An artifact accumulates rings the way a cut tree shows growth. A long ring completed years ago
+        stays legible today, even if the artifact is sitting at depth 40 right now.</p>
+      <p>Depth is bucketed into eight named tiers so that a number becomes a thing you can say out loud. Raw is
+        where everything starts. Elder is 210000 blocks, roughly four years at ten minutes a block.</p>
+
+      <ul class="tierstrip">
+        <li data-tier="0"><span class="n">Raw</span><span class="b">0</span></li>
+        <li data-tier="1"><span class="n">Sheen</span><span class="b">1008</span></li>
+        <li data-tier="2"><span class="n">Cast</span><span class="b">4032</span></li>
+        <li data-tier="3"><span class="n">Verdigris</span><span class="b">12960</span></li>
+        <li data-tier="4"><span class="n">Umber</span><span class="b">26280</span></li>
+        <li data-tier="5"><span class="n">Bronze</span><span class="b">52560</span></li>
+        <li data-tier="6"><span class="n">Oxide</span><span class="b">105120</span></li>
+        <li data-tier="7"><span class="n">Elder</span><span class="b">210000</span></li>
+      </ul>
+      <p>The full table, with elapsed time for each tier and the exact rule for choosing one, is on
+        <a href="protocol/depth-and-tiers.html">Depth and tiers</a>.</p>
+
+      <h2>The genesis asset</h2>
+      <p>The first PATINA asset is the <strong>Firstlight Seals</strong>. It is the founding cohort, and it opens
+        once.</p>
+      <ul>
+        <li>Minting is free. You pay Bitcoin network fees to the miners and nothing to anyone else.</li>
+        <li>The commit window is 4032 blocks long, about 28 days. It opens once and does not reopen.</li>
+        <li>Every Seal is sealed over at least 100000 sats of your own bitcoin. That is the
+          <strong>endowment</strong>. It stays yours, inside the artifact, spendable by your key at any time.</li>
+        <li>Zero team allocation. Zero reserve. Zero price. No supply cap. No race for a low number.</li>
+      </ul>
+      <p>Minting is a two step aged commit and reveal. You publish a commit output, wait at least 144 blocks, then
+        reveal. Because only the committer can spend the commit output, nobody can watch your reveal and jump in
+        front of it. Details are on <a href="start/firstlight-seals.html">Firstlight Seals</a> and the step by step
+        is in the <a href="using/mint.html">mint walkthrough</a>.</p>
+
+      <h2>What this is not</h2>
+      <div class="honest">
+        <span class="lbl">Read this before you mint</span>
+        <p>Depth proves that an outpoint has not moved. Paired with a signed attestation it also shows the key is
+          still alive. It does not prove that the same person held it the whole time, because keys can be sold off
+          chain and nothing on chain would look different.</p>
+        <p>Founding membership can be concentrated. Anyone willing to park real bitcoin can mint many Seals, and we
+          publish live concentration statistics during the window instead of hiding them.</p>
+        <p>Buying an artifact from someone else moves it, and moving it resets depth to zero. There is no transfer
+          that preserves depth. The rings survive; the current stretch does not.</p>
+        <p class="footnote"><a href="start/limits.html">The full list of limits</a></p>
+      </div>
+
+      <h2>How to read these docs</h2>
+      <p>Every page carries a badge at the top saying what kind of page it is. The kind decides how much weight a
+        sentence carries, so it is worth a glance before you argue with one.</p>
+      <div class="tablewrap">
+        <table>
+          <caption>The four kinds of page, and what each one is for.</caption>
+          <thead><tr><th scope="col">Kind</th><th scope="col">What it means</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Introductory</th><td>Orientation. Correct, but it explains rather than binds. Start here if the words are new.</td></tr>
+            <tr><th scope="row">Operational</th><td>A procedure to follow, with what to check at each step and what to do when it fails.</td></tr>
+            <tr><th scope="row">Normative</th><td>The rule as the specification states it. If a page and the specification disagree, the specification wins and the page is a bug.</td></tr>
+            <tr><th scope="row">Generated</th><td>Every printed value was computed by <code>docs/tools/vectors.mjs</code> and is checked digit by digit on every run.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <dl class="fields">
+        <dt>Constants</dt>
+        <dd>Every number in these pages comes from the frozen implementation baseline. If a page and the baseline
+          disagree, the baseline wins and the page is a bug.</dd>
+        <dt>Byte examples</dt>
+        <dd>Every hex string was computed by <code>docs/tools/vectors.mjs</code> and pasted from that script's
+          output. You can rerun it and diff.</dd>
+        <dt>Statistics</dt>
+        <dd>These pages contain no counts, no totals, and no charts. Numbers about the live network belong to the
+          indexer, and you can point the <a href="api/endpoints.html">endpoint reference</a> at your own instance
+          to read them.</dd>
+        <dt>Deviations</dt>
+        <dd>Anything an implementation does differently from the baseline is recorded in
+          <code class="mono">docs/deviations.md</code> in this repo, not quietly in prose.</dd>
+      </dl>
+
+      <h2>How this site is built</h2>
+      <p>Hand written HTML, one stylesheet, and three small browser scripts. No framework, no bundler, no fonts or
+        scripts loaded from anyone else's server. It works served from GitHub Pages and it works when you open
+        <code>index.html</code> straight off a disk.</p>
+      <p>Search runs against <code>assets/search-index.json</code>, which is generated by
+        <code>docs/tools/build-search-index.mjs</code>. The same data is written to
+        <code>assets/search-index.js</code> as well, because a browser blocks a page opened from disk from
+        fetching a local file, and search has to work from disk too.</p>
+      <p>The colour tokens in <code>assets/style.css</code> are the same names and the same values as the ones in
+        <code>site/assets/site.css</code>. The public site and these pages are one product at two depths, and
+        <code>site/tools/check-site.mjs</code> fails if the two files ever drift apart.</p>
+      <p>Run every check before publishing. It regenerates the search index and fails on a broken link, a bad byte
+        example, a contrast regression, or a house style slip.</p>
+      <pre data-label="From the repo root"><code>node docs/tools/verify.mjs</code></pre>
+      <div class="tablewrap">
+        <table>
+          <caption>What each script does. All of them use the Node standard library and nothing else.</caption>
+          <thead><tr><th scope="col">Script</th><th scope="col">Checks</th></tr></thead>
+          <tbody>
+            <tr><td><code>vectors.mjs</code></td><td>Computes every byte example printed in these pages</td></tr>
+            <tr><td><code>build-search-index.mjs</code></td><td>Regenerates the search index from the pages</td></tr>
+            <tr><td><code>stamp-meta.mjs</code></td><td>Writes the sharing metadata into every page from its own title and section</td></tr>
+            <tr><td><code>check-html.mjs</code></td><td>Tag balance, duplicate ids, heading order, labels, captions, page metadata</td></tr>
+            <tr><td><code>check-links.mjs</code></td><td>Every link and fragment resolves, in these pages or on the public site</td></tr>
+            <tr><td><code>check-style.mjs</code></td><td>No em dashes, no version labels, no hype words, no external resources</td></tr>
+            <tr><td><code>check-vectors.mjs</code></td><td>Every hex string on every page is part of a computed value</td></tr>
+            <tr><td><code>check-contrast.mjs</code></td><td>Colour contrast in both themes, in both stylesheets</td></tr>
+            <tr><td><code>check-shell.mjs</code></td><td>Runs the browser scripts headless and asserts what they build</td></tr>
+            <tr><td><code>serve.mjs</code></td><td>Serves this directory locally for preview</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+    <nav class="pager" id="pager" aria-label="Previous and next page"></nav>
+  </main>
+  <aside class="toc" id="toc" aria-label="On this page"></aside>
+</div>
+<script src="assets/nav-data.js"></script>
+<script src="assets/search-index.js"></script>
+<script src="assets/shell.js"></script>
+</body>
+</html>

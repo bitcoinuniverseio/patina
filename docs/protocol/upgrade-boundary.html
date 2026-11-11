@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The upgrade boundary | PATINA docs</title>
+<meta name="description" content="What is frozen in PATINA and can never change, what may be added, and the process that has to be followed for anything on the boundary.">
+<!-- sharing metadata, written by docs/tools/stamp-meta.mjs -->
+<link rel="canonical" href="https://bitcoinuniverseio.github.io/patina/docs/protocol/upgrade-boundary.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PATINA">
+<meta property="og:title" content="The upgrade boundary, PATINA documentation">
+<meta property="og:description" content="What is frozen in PATINA and can never change, what may be added, and the process that has to be followed for anything on the boundary.">
+<meta property="og:url" content="https://bitcoinuniverseio.github.io/patina/docs/protocol/upgrade-boundary.html">
+<meta property="og:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-protocol.svg">
+<meta property="og:image:alt" content="The twenty six bytes of a PATINA marker, drawn as a grid with the magic bytes picked out.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The upgrade boundary, PATINA documentation">
+<meta name="twitter:description" content="What is frozen in PATINA and can never change, what may be added, and the process that has to be followed for anything on the boundary.">
+<meta name="twitter:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-protocol.svg">
+<meta name="theme-color" content="#14110d">
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml">
+<!-- end sharing metadata -->
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('patina-docs-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}</script>
+</head>
+<body data-page="protocol/upgrade-boundary.html" data-root="../">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="mark" aria-hidden="true"></span><b>PATINA</b> <span class="sub">docs</span></a>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"><nav id="nav" aria-label="Documentation contents"></nav></aside>
+<!-- scriptless contents, written by docs/tools/stamp-meta.mjs -->
+<noscript>
+  <nav class="noscript-nav" aria-label="Documentation contents">
+    <p>The contents list, the breadcrumb and the previous and next links on this site are built by a small script. With scripts unavailable, here is every page.</p>
+    <p><a href="../../index.html">The public PATINA site</a></p>
+    <h2>Start here</h2>
+    <ul>
+      <li><a href="../index.html">What PATINA is</a></li>
+      <li><a href="../start/firstlight-seals.html">Firstlight Seals</a></li>
+      <li><a href="../start/what-you-own.html">What you actually own</a></li>
+      <li><a href="../start/limits.html">What it does not promise</a></li>
+    </ul>
+    <h2>Using it</h2>
+    <ul>
+      <li><a href="../using/wallet-setup.html">Wallet setup</a></li>
+      <li><a href="../using/mint.html">Mint walkthrough</a></li>
+      <li><a href="../using/artifact-page.html">Reading your artifact</a></li>
+      <li><a href="../using/depth-resets.html">What resets depth</a></li>
+      <li><a href="../using/attestations.html">Attestations</a></li>
+      <li><a href="../using/transfer.html">Transferring an artifact</a></li>
+      <li><a href="../using/recovery.html">When something goes wrong</a></li>
+    </ul>
+    <h2>Protocol reference</h2>
+    <ul>
+      <li><a href="../protocol/identity.html">Identity and derivations</a></li>
+      <li><a href="../protocol/marker-grammar.html">Marker grammar</a></li>
+      <li><a href="../protocol/seed-rules.html">SEED rules</a></li>
+      <li><a href="../protocol/keep-rules.html">KEEP and the default rule</a></li>
+      <li><a href="../protocol/state-machine.html">State machine</a></li>
+      <li><a href="../protocol/rings.html">Rings</a></li>
+      <li><a href="../protocol/depth-and-tiers.html">Depth and tiers</a></li>
+      <li><a href="../protocol/reason-codes.html">Reason codes</a></li>
+      <li><a href="../protocol/reorgs.html">Reorg behavior</a></li>
+      <li><a href="../protocol/upgrade-boundary.html">The upgrade boundary</a></li>
+    </ul>
+    <h2>Indexer and API</h2>
+    <ul>
+      <li><a href="../api/conventions.html">API conventions</a></li>
+      <li><a href="../api/endpoints.html">Endpoint reference</a></li>
+      <li><a href="../api/errors.html">Error taxonomy</a></li>
+      <li><a href="../api/run-an-indexer.html">Run your own indexer</a></li>
+    </ul>
+    <h2>Build a compatible implementation</h2>
+    <ul>
+      <li><a href="../compat/build.html">Build it</a></li>
+      <li><a href="../compat/golden-vectors.html">Golden vectors and state roots</a></li>
+      <li><a href="../compat/disagreements.html">Report a disagreement</a></li>
+    </ul>
+    <h2>Operator guide</h2>
+    <ul>
+      <li><a href="../operator/deploy.html">Deploy and configure</a></li>
+      <li><a href="../operator/run.html">Sync and reindex</a></li>
+      <li><a href="../operator/verify.html">Verify and monitor</a></li>
+      <li><a href="../operator/backup.html">Back up and restore</a></li>
+      <li><a href="../operator/incidents.html">Incident actions</a></li>
+    </ul>
+    <h2>Creator guide</h2>
+    <ul>
+      <li><a href="../creator/tier-renders.html">Deterministic tier renders</a></li>
+      <li><a href="../creator/render-packs.html">Publish a render pack</a></li>
+      <li><a href="../creator/render-rules.html">Rules that keep renders honest</a></li>
+    </ul>
+    <h2>Launch operations</h2>
+    <ul>
+      <li><a href="../launch/checklist.html">Pre launch checklist</a></li>
+      <li><a href="../launch/timeline.html">Timeline</a></li>
+      <li><a href="../launch/monitoring.html">Monitoring and incident response</a></li>
+      <li><a href="../launch/go-no-go.html">Go, conditional go, no go</a></li>
+    </ul>
+    <h2>Glossary and FAQ</h2>
+    <ul>
+      <li><a href="../reference/glossary.html">Glossary</a></li>
+      <li><a href="../reference/faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</noscript>
+<!-- end scriptless contents -->
+  <main class="content" id="content">
+    <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
+    <article>
+      <h1>The upgrade boundary</h1>
+      <p class="lede">Some things are frozen because changing them would rewrite history. Others can be added
+        because they change nothing that already exists. The line between them is this page.</p>
+
+      <div class="willknow">
+        <span class="lbl">What you will know after this page</span>
+        <ul>
+          <li>The eight frozen surfaces, down to which constants and which reason code names are inside them.</li>
+          <li>What an implementation is free to change without telling anyone, and why an additive field is not a removal.</li>
+          <li>Why a new opcode or a new marker version splits implementations even though old parsers survive it.</li>
+          <li>That every bit of the SEED flags byte must be zero, and why it is not a forward compatibility channel.</li>
+          <li>The two conditions software must see before it will build a mainnet transaction.</li>
+        </ul>
+      </div>
+
+      <h2>Frozen</h2>
+      <p>Nothing below may change. A change here would produce different state from the same chain, which means the
+        artifacts people already hold would mean something different than they did when they were made.</p>
+      <div class="tablewrap">
+        <table>
+          <caption>Frozen surfaces.</caption>
+          <thead><tr><th scope="col">Surface</th><th scope="col">Includes</th></tr></thead>
+          <tbody>
+            <tr><td>Identity</td><td>Magic <code>PTNA</code>, version byte <code>0x01</code>, protocol slug</td></tr>
+            <tr><td>Derivations</td><td>The five domain tags, single SHA-256, the preimage layouts</td></tr>
+            <tr><td>Marker grammar</td><td>Single minimal push, 83 byte ceiling, lowest index selection, duplicate voiding</td></tr>
+            <tr><td>Opcodes</td><td><code>0x01</code> SEED and <code>0x02</code> KEEP, and their payload layouts</td></tr>
+            <tr><td>Constants</td><td>144, 4032, 4032, 100000, 10000, 10000, 8, 6, and the eight tier thresholds</td></tr>
+            <tr><td>Validity rules</td><td>The six SEED checks, KEEP entry rules, the default rule, relic terminality</td></tr>
+            <tr><td>Reason codes</td><td>All eighteen, by name</td></tr>
+            <tr><td>State semantics</td><td>Depth is computed, rings are append only, relic is terminal</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Free to change</h2>
+      <p>None of these affect what a transaction means.</p>
+      <ul>
+        <li>Indexer internals: storage engine, schema, caching, concurrency, language.</li>
+        <li>Sync speed, memory use, and deployment shape.</li>
+        <li><strong>Additive</strong> API surface: new endpoints, new fields on existing responses. Removing or
+          repurposing a field is not additive.</li>
+        <li>Everything about presentation: renders, share cards, wording, this documentation.</li>
+        <li>Client tooling, planners, and wallet integrations.</li>
+        <li>Operational policy: rate limits, retention of invalid events, monitoring.</li>
+      </ul>
+
+      <h2>On the boundary</h2>
+      <p>Three things sit in between and need the process below.</p>
+      <h3>A new opcode</h3>
+      <p>The marker already reserves opcode space, and unknown opcodes are handled: they record
+        <code>MARKER_UNKNOWN_OP</code> and change nothing. That means a new opcode can be introduced without
+        breaking older indexers, but older indexers will disagree with newer ones about state from the moment
+        anyone uses it. Adding an opcode is a protocol change, not a feature.</p>
+
+      <h3>A new marker version</h3>
+      <p>Same shape. Version <code>0x02</code> markers would be ignored with
+        <code>MARKER_UNKNOWN_VERSION</code> by current parsers. Introducing one splits implementations the same
+        way.</p>
+
+      <h3>The flags byte</h3>
+      <p>SEED reserves one payload byte with no assigned meaning, and every bit of it must be zero at version 1.
+        Assigning a meaning to it later would change how already confirmed transactions are interpreted, so it is a
+        protocol change, and one to avoid.</p>
+      <div class="warn">
+        <span class="lbl">Flags are not a compatibility channel</span>
+        <p>A non zero flags byte is <code>SEED_BAD_GRAMMAR</code>, and an implementation must reject it. One that
+          waves it through creates artifacts no other implementation has, which surfaces as a state root mismatch
+          rather than a disagreement about presentation. A future version that wants flags will carry a different
+          version byte instead.</p>
+      </div>
+
+      <h2>The process for anything frozen or on the boundary</h2>
+      <p>Four steps, in this order. Nothing written at step one ships until step three has vectors that two
+        implementations can both reproduce.</p>
+      <ol class="steps">
+        <li>
+          <h3>Write it down before writing code</h3>
+          <p>A change to the baseline is proposed as a change to the baseline file, with the reason, the affected
+            constants, and the effect on existing artifacts.</p>
+        </li>
+        <li>
+          <h3>Record deviations honestly</h3>
+          <p>Any implementation that already differs from the baseline records the difference in
+            <code class="mono">docs/deviations.md</code>, in this repo. A deviation that is not written down is a
+            bug wearing a disguise.</p>
+        </li>
+        <li>
+          <h3>Extend the golden vectors first</h3>
+          <p>A change is not real until vectors cover it. Two implementations must be able to prove they agree on
+            the new behaviour before it ships. See
+            <a href="../compat/golden-vectors.html">Golden vectors and state roots</a>.</p>
+        </li>
+        <li>
+          <h3>Bind it to a deployment record</h3>
+          <p>Deployment records carry <code>spec_sha256</code>. A change to the spec changes that hash, and
+            <code>GET /patina/status</code> publishes it. Anyone can tell which spec an indexer is running
+            without asking.</p>
+        </li>
+      </ol>
+
+      <h2>Networks and activation</h2>
+      <p>Deployments bind a network to the constants and window heights it uses:</p>
+      <pre data-label="Deployment record"><code>{ network, protocol_id: "PTNA", spec_sha256,
+  h_open, h_close, grace_end,
+  min_carrier_founding, min_carrier_open, commit_min_age }</code></pre>
+      <ul>
+        <li>Regtest and signet deployments ship in the repo.</li>
+        <li>Mainnet values stay unset until activation is authorised.</li>
+        <li>Software must refuse to construct mainnet transactions without both
+          <code>PATINA_MAINNET_AUTHORIZED=true</code> and a mainnet deployment record naming at least two
+          approvers.</li>
+      </ul>
+      <p>This is a deliberate speed limit. It means an accidental deploy cannot open a founding window, and it
+        means the window's heights are a published decision rather than a runtime surprise.</p>
+      <p>What those switches reach, and the things nobody holds a switch over at all, is set out on the public
+        <a href="../../transparency.html">transparency page</a>.</p>
+
+      <h2>Naming rule</h2>
+      <p>There are no version labels in any name: not in file names, folder names, package names, URLs, or
+        interface copy. The one number that exists is the marker version byte, which is protocol data inside a
+        transaction, not a product name. When you need to say which spec is running, quote
+        <code>spec_sha256</code>.</p>
+    </article>
+    <nav class="pager" id="pager" aria-label="Previous and next page"></nav>
+  </main>
+  <aside class="toc" id="toc" aria-label="On this page"></aside>
+</div>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/shell.js"></script>
+</body>
+</html>

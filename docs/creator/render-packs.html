@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Publish a render pack | PATINA docs</title>
+<meta name="description" content="The layout of a PATINA render pack, what the manifest declares, and the checks to run before publishing one.">
+<!-- sharing metadata, written by docs/tools/stamp-meta.mjs -->
+<link rel="canonical" href="https://bitcoinuniverseio.github.io/patina/docs/creator/render-packs.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PATINA">
+<meta property="og:title" content="Publish a render pack, PATINA documentation">
+<meta property="og:description" content="The layout of a PATINA render pack, what the manifest declares, and the checks to run before publishing one.">
+<meta property="og:url" content="https://bitcoinuniverseio.github.io/patina/docs/creator/render-packs.html">
+<meta property="og:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-tiers.svg">
+<meta property="og:image:alt" content="Eight tier discs in a row, from cold raw metal through cast bronze and earth into deep verdigris.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Publish a render pack, PATINA documentation">
+<meta name="twitter:description" content="The layout of a PATINA render pack, what the manifest declares, and the checks to run before publishing one.">
+<meta name="twitter:image" content="https://bitcoinuniverseio.github.io/patina/assets/brand/og-tiers.svg">
+<meta name="theme-color" content="#14110d">
+<link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml">
+<!-- end sharing metadata -->
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('patina-docs-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}</script>
+</head>
+<body data-page="creator/render-packs.html" data-root="../">
+<a class="skip" href="#content">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="mark" aria-hidden="true"></span><b>PATINA</b> <span class="sub">docs</span></a>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"><nav id="nav" aria-label="Documentation contents"></nav></aside>
+<!-- scriptless contents, written by docs/tools/stamp-meta.mjs -->
+<noscript>
+  <nav class="noscript-nav" aria-label="Documentation contents">
+    <p>The contents list, the breadcrumb and the previous and next links on this site are built by a small script. With scripts unavailable, here is every page.</p>
+    <p><a href="../../index.html">The public PATINA site</a></p>
+    <h2>Start here</h2>
+    <ul>
+      <li><a href="../index.html">What PATINA is</a></li>
+      <li><a href="../start/firstlight-seals.html">Firstlight Seals</a></li>
+      <li><a href="../start/what-you-own.html">What you actually own</a></li>
+      <li><a href="../start/limits.html">What it does not promise</a></li>
+    </ul>
+    <h2>Using it</h2>
+    <ul>
+      <li><a href="../using/wallet-setup.html">Wallet setup</a></li>
+      <li><a href="../using/mint.html">Mint walkthrough</a></li>
+      <li><a href="../using/artifact-page.html">Reading your artifact</a></li>
+      <li><a href="../using/depth-resets.html">What resets depth</a></li>
+      <li><a href="../using/attestations.html">Attestations</a></li>
+      <li><a href="../using/transfer.html">Transferring an artifact</a></li>
+      <li><a href="../using/recovery.html">When something goes wrong</a></li>
+    </ul>
+    <h2>Protocol reference</h2>
+    <ul>
+      <li><a href="../protocol/identity.html">Identity and derivations</a></li>
+      <li><a href="../protocol/marker-grammar.html">Marker grammar</a></li>
+      <li><a href="../protocol/seed-rules.html">SEED rules</a></li>
+      <li><a href="../protocol/keep-rules.html">KEEP and the default rule</a></li>
+      <li><a href="../protocol/state-machine.html">State machine</a></li>
+      <li><a href="../protocol/rings.html">Rings</a></li>
+      <li><a href="../protocol/depth-and-tiers.html">Depth and tiers</a></li>
+      <li><a href="../protocol/reason-codes.html">Reason codes</a></li>
+      <li><a href="../protocol/reorgs.html">Reorg behavior</a></li>
+      <li><a href="../protocol/upgrade-boundary.html">The upgrade boundary</a></li>
+    </ul>
+    <h2>Indexer and API</h2>
+    <ul>
+      <li><a href="../api/conventions.html">API conventions</a></li>
+      <li><a href="../api/endpoints.html">Endpoint reference</a></li>
+      <li><a href="../api/errors.html">Error taxonomy</a></li>
+      <li><a href="../api/run-an-indexer.html">Run your own indexer</a></li>
+    </ul>
+    <h2>Build a compatible implementation</h2>
+    <ul>
+      <li><a href="../compat/build.html">Build it</a></li>
+      <li><a href="../compat/golden-vectors.html">Golden vectors and state roots</a></li>
+      <li><a href="../compat/disagreements.html">Report a disagreement</a></li>
+    </ul>
+    <h2>Operator guide</h2>
+    <ul>
+      <li><a href="../operator/deploy.html">Deploy and configure</a></li>
+      <li><a href="../operator/run.html">Sync and reindex</a></li>
+      <li><a href="../operator/verify.html">Verify and monitor</a></li>
+      <li><a href="../operator/backup.html">Back up and restore</a></li>
+      <li><a href="../operator/incidents.html">Incident actions</a></li>
+    </ul>
+    <h2>Creator guide</h2>
+    <ul>
+      <li><a href="../creator/tier-renders.html">Deterministic tier renders</a></li>
+      <li><a href="../creator/render-packs.html">Publish a render pack</a></li>
+      <li><a href="../creator/render-rules.html">Rules that keep renders honest</a></li>
+    </ul>
+    <h2>Launch operations</h2>
+    <ul>
+      <li><a href="../launch/checklist.html">Pre launch checklist</a></li>
+      <li><a href="../launch/timeline.html">Timeline</a></li>
+      <li><a href="../launch/monitoring.html">Monitoring and incident response</a></li>
+      <li><a href="../launch/go-no-go.html">Go, conditional go, no go</a></li>
+    </ul>
+    <h2>Glossary and FAQ</h2>
+    <ul>
+      <li><a href="../reference/glossary.html">Glossary</a></li>
+      <li><a href="../reference/faq.html">FAQ</a></li>
+    </ul>
+  </nav>
+</noscript>
+<!-- end scriptless contents -->
+  <main class="content" id="content">
+    <nav class="crumb" id="crumb" aria-label="Breadcrumb"></nav>
+    <article>
+      <h1>Publish a render pack</h1>
+      <p class="lede">A pack is a self contained folder that turns artifact state into a picture. Anyone can
+        publish one, and nobody needs permission.</p>
+
+      <div class="willknow">
+        <span class="lbl">What you will know after this page</span>
+        <ul>
+          <li>What goes in the folder, and why every font and asset ships inside it rather than being fetched.</li>
+          <li>Which five manifest fields are promises you can be held to, and why <code>network_access</code> is
+            false in every honest pack.</li>
+          <li>The shape of the render function, and why it must fail loudly instead of drawing Raw for missing
+            state.</li>
+          <li>The five kinds of sample a pack ships at a minimum, and which pair proves it tells the truth about a
+            reset.</li>
+          <li>The eleven checks to run before publishing, from comparing hashes to contrast.</li>
+        </ul>
+      </div>
+
+      <h2>Layout</h2>
+      <p>Seven entries, and everything the render reads while drawing is one of them.</p>
+      <pre data-label="Pack directory"><code>my-pack/
+  manifest.json      what this pack is and what it claims
+  render.js          the pure render function
+  tiers/             one asset set per tier, if the pack uses assets
+  fonts/             any font the pack needs, bundled not linked
+  samples/           rendered examples with their inputs
+  README.md          how to use it, and the derivation the pack uses
+  LICENSE</code></pre>
+      <p>Everything the render needs ships inside the folder. A pack that fetches an asset from someone else's
+        server stops working the day that server does, and it stops being verifiable long before that.</p>
+
+      <h2>Manifest</h2>
+      <p>The manifest is the pack's claim about itself, and the five fields below are the ones anyone can check
+        against your samples. Write it once the render works, so it describes what the code does rather than what
+        you meant. The eight
+        tier names are spelled the way <a href="../../tiers.html">the tiers page</a> spells them.</p>
+      <pre data-label="manifest.json"><code>{
+  "name": "my-pack",
+  "author": "who made it",
+  "license": "SPDX identifier",
+  "protocol_id": "PTNA",
+  "inputs": ["artifact_id", "founding", "status", "depth", "tier", "rings", "height"],
+  "outputs": ["svg"],
+  "tiers": ["Raw", "Sheen", "Cast", "Verdigris", "Umber", "Bronze", "Oxide", "Elder"],
+  "deterministic": true,
+  "network_access": false,
+  "reduced_motion": "static output only",
+  "derivation": "how per artifact variation is derived from artifact_id"
+}</code></pre>
+      <div class="tablewrap">
+        <table>
+          <caption>Fields that carry a promise.</caption>
+          <thead><tr><th scope="col">Field</th><th scope="col">Promise</th></tr></thead>
+          <tbody>
+            <tr><td><code>inputs</code></td><td>These are the only inputs the render reads. Listing an input you do not read is sloppy. Reading one you did not list is dishonest.</td></tr>
+            <tr><td><code>deterministic</code></td><td>Same inputs produce identical output bytes</td></tr>
+            <tr><td><code>network_access</code></td><td>False, always. A render that needs the network is not a render pack.</td></tr>
+            <tr><td><code>derivation</code></td><td>Anyone can reproduce your variant choices from the artifact id</td></tr>
+            <tr><td><code>tiers</code></td><td>All eight names, spelled as the protocol spells them</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The render function</h2>
+      <pre data-label="Signature"><code>// Returns a string of SVG, or a buffer, depending on the declared output.
+// No network, no clock, no randomness, no globals.
+function render(state) {
+  // state: { artifact_id, founding, status, depth, tier, rings, height }
+  // ...
+  return svg;
+}</code></pre>
+      <ul>
+        <li>Take the whole state object and read only what you declared.</li>
+        <li>Do not mutate the input.</li>
+        <li>Handle every case: depth zero, Elder, relic, zero rings, many rings.</li>
+        <li>Fail loudly on missing fields rather than substituting a default. A render that quietly draws Raw when
+          it was given nothing is a render that lies.</li>
+      </ul>
+
+      <h2>Samples are part of the pack</h2>
+      <p>Ship at least these, each with the exact input JSON that produced it:</p>
+      <ol>
+        <li>One per tier, Raw through Elder.</li>
+        <li>A founding artifact and a non founding one at the same tier.</li>
+        <li>A relic.</li>
+        <li>An artifact with zero rings and one with at least three.</li>
+        <li>An artifact that is deep now, and one that was deep once and is Raw now.</li>
+      </ol>
+      <p>The last pair is the important one. It shows whether the pack tells the truth about a reset.</p>
+
+      <h2>Checks before you publish</h2>
+      <p>Eleven checks, run against every sample rather than a favourite one. The first four are the determinism
+        checks, and they are the reason anyone can trust a pack they did not write.</p>
+      <div class="tablewrap">
+        <table>
+          <caption>Run all of these. A pack that fails any of them is not ready.</caption>
+          <thead><tr><th scope="col">Check</th><th scope="col">How</th></tr></thead>
+          <tbody>
+            <tr><td>Determinism</td><td>Render each sample twice, compare hashes</td></tr>
+            <tr><td>Portability</td><td>Render on a second machine, compare hashes</td></tr>
+            <tr><td>Offline</td><td>Disconnect the network and render every sample</td></tr>
+            <tr><td>No external requests</td><td>Grep the source for URLs, and watch the network panel while rendering</td></tr>
+            <tr><td>Tier legibility</td><td>Put all eight side by side. Each must be tellable from its neighbours.</td></tr>
+            <tr><td>Relic legibility</td><td>A relic must not be mistakable for a live artifact</td></tr>
+            <tr><td>Height stamp</td><td>Present and readable at the smallest size the pack supports</td></tr>
+            <tr><td>Contrast</td><td>Any text passes AA against its background</td></tr>
+            <tr><td>Reduced motion</td><td>Animation is optional, and the static form carries the same facts</td></tr>
+            <tr><td>Text alternative</td><td>Every meaningful element has one</td></tr>
+            <tr><td>Size</td><td>Reasonable for a share card. State the output size in the README.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Publishing</h2>
+      <ol>
+        <li>Put the folder in a public repository with its license.</li>
+        <li>Include the manifest, the samples, and their inputs.</li>
+        <li>State plainly that the pack is a view of the state, not the state, and that the protocol does not
+          endorse it.</li>
+        <li>If you change the pack, publish it as a separate pack rather than silently changing the pictures people
+          already shared. A render is a claim about state at a height, and rewriting it later breaks that.</li>
+      </ol>
+      <div class="warn">
+        <span class="lbl">No version labels in the name</span>
+        <p>Name a revised pack for what changed, not with a number. The program has no version labels in names,
+          folders, or URLs anywhere, and packs follow the same rule.</p>
+      </div>
+
+      <h2>What a pack may never do</h2>
+      <p>The full list is on <a href="render-rules.html">Rules that keep renders honest</a>. The short form: a pack
+        may make an artifact beautiful, and may not make it look like something it is not.</p>
+    </article>
+    <nav class="pager" id="pager" aria-label="Previous and next page"></nav>
+  </main>
+  <aside class="toc" id="toc" aria-label="On this page"></aside>
+</div>
+<script src="../assets/nav-data.js"></script>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/shell.js"></script>
+</body>
+</html>

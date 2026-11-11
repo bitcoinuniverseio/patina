@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "patina",
+  "name": "PATINA",
+  "classification": "protocol",
+  "repository": "bitcoinuniverseio/patina",
+  "documentationUrl": "https://docs.bitcoinuniverse.io/protocols/patina/",
+  "docsRoot": "docs",
+  "sourceRef": "main",
+  "releasedRef": "patina-1.1.0",
+  "releaseVersion": "1.1.0",
+  "lifecycle": "stable",
+  "chains": [
+    {
+      "chain": "bitcoin",
+      "networks": [
+        "mainnet"
+      ]
+    }
+  ],
+  "protocols": [
+    "patina"
+  ],
+  "audiences": [
+    "protocol-implementer",
+    "app-developer",
+    "indexer-operator"
+  ],
+  "specifications": [
+    "patina-protocol.md"
+  ],
+  "contracts": {
+    "jsonSchema": [
+      "schemas/artifact.schema.json",
+      "schemas/deployment.schema.json",
+      "schemas/invalid-event.schema.json",
+      "schemas/share-card.schema.json"
+    ]
+  },
+  "owners": [
+    "bitcoinuniverseio"
+  ],
+  "lastVerified": {
+    "commit": "ba1eb8e4a9f737eba5e45879d536b19b689dacad",
+    "timestamp": "2026-09-01T02:00:00Z"
+  },
+  "securityClassification": "public"
+}

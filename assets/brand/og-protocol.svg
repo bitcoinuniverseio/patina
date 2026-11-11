@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="card-title">
+  <title id="card-title">The PATINA marker: twenty six bytes in a single OP_RETURN output.</title>
+  <defs>
+    <pattern id="strata" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="1" fill="#f0e8dc" fill-opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#14110d"/>
+  <rect width="1200" height="630" fill="url(#strata)"/>
+  <path d="M600 0 L600 630" stroke="#52463a" stroke-width="1" stroke-opacity="0.5"/>
+
+  <g>
+    <rect x="656" y="214" width="33" height="37" rx="2" fill="#e0a463" fill-opacity="0.3" stroke="#e0a463" stroke-width="1.8"/>
+    <rect x="694" y="214" width="33" height="37" rx="2" fill="#b97a3c" fill-opacity="0.3" stroke="#b97a3c" stroke-width="1.8"/>
+    <rect x="732" y="214" width="33" height="37" rx="2" fill="#6cc7ab" fill-opacity="0.3" stroke="#6cc7ab" stroke-width="1.8"/>
+    <rect x="770" y="214" width="33" height="37" rx="2" fill="#6cc7ab" fill-opacity="0.3" stroke="#6cc7ab" stroke-width="1.8"/>
+    <rect x="808" y="214" width="33" height="37" rx="2" fill="#6cc7ab" fill-opacity="0.3" stroke="#6cc7ab" stroke-width="1.8"/>
+    <rect x="846" y="214" width="33" height="37" rx="2" fill="#6cc7ab" fill-opacity="0.3" stroke="#6cc7ab" stroke-width="1.8"/>
+    <rect x="884" y="214" width="33" height="37" rx="2" fill="#b6a05a" fill-opacity="0.3" stroke="#b6a05a" stroke-width="1.8"/>
+    <rect x="922" y="214" width="33" height="37" rx="2" fill="#8aa472" fill-opacity="0.3" stroke="#8aa472" stroke-width="1.8"/>
+    <rect x="960" y="214" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="998" y="214" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="1036" y="214" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="1074" y="214" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="1112" y="214" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="656" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="694" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="732" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="770" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="808" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="846" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="884" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="922" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="960" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="998" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="1036" y="256" width="33" height="37" rx="2" fill="#52463a" fill-opacity="0.12" stroke="#52463a" stroke-width="1"/>
+    <rect x="1074" y="256" width="33" height="37" rx="2" fill="#d8b57e" fill-opacity="0.3" stroke="#d8b57e" stroke-width="1.8"/>
+    <rect x="1112" y="256" width="33" height="37" rx="2" fill="#e0a463" fill-opacity="0.3" stroke="#e0a463" stroke-width="1.8"/>
+    <rect x="656" y="352" width="14" height="14" fill="#e0a463" fill-opacity="0.45" stroke="#e0a463"/>
+    <text x="678" y="364" fill="#a4977f" font-family="ui-monospace, Consolas, monospace" font-size="13" letter-spacing="1">OP_RETURN</text>
+    <rect x="764" y="352" width="14" height="14" fill="#6cc7ab" fill-opacity="0.45" stroke="#6cc7ab"/>
+    <text x="786" y="364" fill="#a4977f" font-family="ui-monospace, Consolas, monospace" font-size="13" letter-spacing="1">PTNA</text>
+    <rect x="872" y="352" width="14" height="14" fill="#b6a05a" fill-opacity="0.45" stroke="#b6a05a"/>
+    <text x="894" y="364" fill="#a4977f" font-family="ui-monospace, Consolas, monospace" font-size="13" letter-spacing="1">VERSION</text>
+    <rect x="980" y="352" width="14" height="14" fill="#8aa472" fill-opacity="0.45" stroke="#8aa472"/>
+    <text x="1002" y="364" fill="#a4977f" font-family="ui-monospace, Consolas, monospace" font-size="13" letter-spacing="1">SEED</text>
+    <rect x="1088" y="352" width="14" height="14" fill="#52463a" fill-opacity="0.45" stroke="#52463a"/>
+    <text x="1110" y="364" fill="#a4977f" font-family="ui-monospace, Consolas, monospace" font-size="13" letter-spacing="1">SALT</text>
+    <text x="656" y="418" fill="#a4977f" font-family="ui-monospace, Consolas, monospace" font-size="15" letter-spacing="2">26 BYTES, ONE OP_RETURN OUTPUT</text>
+  </g>
+
+  <g transform="translate(80,150) scale(1.28)" fill="none" stroke="#f0e8dc" stroke-width="9" stroke-linecap="butt">
+    <g transform="translate(10,0)">
+      <path d="M0 80 L0 16 L22 16 A16 16 0 0 1 22 48 L0 48"/>
+      <g transform="translate(58,0)">
+        <path d="M0 80 L22 16 L44 80"/>
+        <path d="M6.9 60 L37.1 60"/>
+      </g>
+      <g transform="translate(122,0)">
+        <path d="M0 16 L44 16"/>
+        <path d="M22 16 L22 80"/>
+      </g>
+      <path d="M192 16 L192 80"/>
+      <path d="M218 80 L218 16 L258 80 L258 16"/>
+      <g transform="translate(278,0)">
+        <path d="M0 80 L22 16 L44 80"/>
+        <path d="M6.9 60 L37.1 60"/>
+      </g>
+    </g>
+  </g>
+
+  <text x="80" y="120" fill="#6cc7ab" font-family="ui-monospace, Consolas, monospace" font-size="20" letter-spacing="6">THE PROTOCOL</text>
+
+  <text x="80" y="350" fill="#f0e8dc" font-family="Georgia, 'Times New Roman', serif" font-size="44">The whole marker fits</text>
+  <text x="80" y="404" fill="#f0e8dc" font-family="Georgia, 'Times New Roman', serif" font-size="44">in twenty six bytes.</text>
+  <text x="80" y="472" fill="#a4977f" font-family="system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="22">OP_RETURN, one minimal push, the magic PTNA, a version byte, an opcode, a payload.</text>
+
+  <path d="M80 520 L520 520" stroke="#52463a" stroke-width="1"/>
+  <text x="80" y="558" fill="#a4977f" font-family="ui-monospace, Consolas, monospace" font-size="18" letter-spacing="2">Frozen at marker version 1</text>
+</svg>
