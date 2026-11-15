@@ -1,0 +1,16 @@
+{
+  "fixture": "golden.json",
+  "fixtureSha256": "ed687ab7f696afc7de01e4b677839fbc9a5d2007c40ddac39a6855eae855f990",
+  "specSha256": "302c7d5ba533b1392b71695094ff59c63a1188f1b80fa25dd8c380a9e78f35e0",
+  "counts": {
+    "derivations": 10,
+    "markerRoundTrips": 12,
+    "markerFailures": 14,
+    "nonMarkers": 4,
+    "tierSamples": 24,
+    "scenarios": 20,
+    "scenarioBlocks": 35,
+    "reorgBranches": 2,
+    "reasonCodesCovered": 18
+  }
+}
