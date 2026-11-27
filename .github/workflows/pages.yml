@@ -39,7 +39,7 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@7556a3a55f68d09bc5695c14db8329a7e29606e4
+      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@5138724c460417a394fda8909c5036b4e938c284
       - name: Check the site
         run: node site/tools/verify.mjs
 
